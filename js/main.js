@@ -81,6 +81,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // — Etichette Counter Animation —
+    const counterEl = document.querySelector('.etichette-count[data-target]');
+    if (counterEl) {
+        const counterObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(counterEl.getAttribute('data-target'));
+                    let current = 0;
+                    const step = Math.ceil(target / 60);
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        counterEl.textContent = current;
+                    }, 25);
+                    counterObs.unobserve(counterEl);
+                }
+            });
+        }, { threshold: 0.3 });
+        counterObs.observe(counterEl);
+    }
+
     // — Floating Bubbles —
     const bubblesBg = document.getElementById('bubblesBg');
     if (bubblesBg) {
