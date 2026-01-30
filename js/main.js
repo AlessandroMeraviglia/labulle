@@ -81,18 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // — Hero parallax —
-    const hero = document.querySelector('.hero-content');
-    if (hero) {
-        window.addEventListener('scroll', () => {
-            const s = window.scrollY;
-            if (s < window.innerHeight) {
-                hero.style.transform = 'translateY(' + (s * 0.25) + 'px)';
-                hero.style.opacity = 1 - (s / window.innerHeight * 0.7);
-            }
-        }, { passive: true });
-    }
-
     // — Floating Bubbles —
     const bubblesBg = document.getElementById('bubblesBg');
     if (bubblesBg) {
@@ -140,23 +128,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // — Menu Tabs —
-    const menuTabs = document.querySelectorAll('.menu-tab');
-    const menuPanels = document.querySelectorAll('.menu-panel');
-    menuTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const target = tab.getAttribute('data-tab');
-            menuTabs.forEach(t => t.classList.remove('active'));
-            menuPanels.forEach(p => p.classList.remove('active'));
-            tab.classList.add('active');
-            const panel = document.getElementById('menu-' + target);
-            if (panel) {
-                panel.classList.add('active');
-                // Re-observe anim elements inside the newly shown panel
-                panel.querySelectorAll('.anim:not(.visible)').forEach(el => obs.observe(el));
-            }
+    // — Menu Category Filters (menu.html) —
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const menuSections = document.querySelectorAll('.menu-section');
+    if (filterBtns.length && menuSections.length) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                menuSections.forEach(sec => {
+                    if (filter === 'all' || sec.getAttribute('data-category') === filter) {
+                        sec.classList.remove('hidden');
+                        sec.querySelectorAll('.anim:not(.visible)').forEach(el => obs.observe(el));
+                    } else {
+                        sec.classList.add('hidden');
+                    }
+                });
+            });
         });
-    });
+    }
 
     // — Event Accordion —
     document.querySelectorAll('.event-accordion').forEach(accordion => {
