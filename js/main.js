@@ -1,49 +1,24 @@
 /* ============================================
-   LA BULLE - Bar & Enoteca
+   LA BULLE — Bar & Enoteca
    Main JavaScript
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ---------- Preloader ----------
-    const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-        setTimeout(() => preloader.classList.add('loaded'), 600);
-    });
-    setTimeout(() => preloader.classList.add('loaded'), 3000);
-
-    // ---------- Hero Particles ----------
-    const particlesContainer = document.getElementById('heroParticles');
-    if (particlesContainer) {
-        for (let i = 0; i < 15; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            const size = Math.random() * 4 + 2;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
-            particle.style.animationDelay = (Math.random() * 12) + 's';
-            particlesContainer.appendChild(particle);
-        }
-    }
-
-    // ---------- Navbar Scroll ----------
+    // — Navbar scroll —
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 80);
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    // ---------- Mobile Navigation ----------
+    // — Mobile nav —
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('open');
         document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
     });
-
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navToggle.classList.remove('active');
@@ -52,108 +27,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ---------- Active Nav Link ----------
+    // — Active nav link —
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-
     window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY + 150;
-        sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-            if (scrollPos >= top && scrollPos < top + height) {
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-                });
+        const pos = window.scrollY + 160;
+        sections.forEach(sec => {
+            const top = sec.offsetTop, h = sec.offsetHeight, id = sec.id;
+            if (pos >= top && pos < top + h) {
+                navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
             }
         });
     }, { passive: true });
 
-    // ---------- Back to Top ----------
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        backToTop.classList.toggle('visible', window.scrollY > 600);
-    }, { passive: true });
+    // — Back to top —
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 500); }, { passive: true });
+    btt.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    // — Scroll animations —
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.anim').forEach(el => obs.observe(el));
 
-    // ---------- Scroll Animations ----------
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-    // ---------- Newsletter Form ----------
-    const newsletterForm = document.getElementById('newsletterForm');
-    const newsletterMessage = document.getElementById('newsletterMessage');
-
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
+    // — Newsletter —
+    const form = document.getElementById('newsletterForm');
+    const msg = document.getElementById('newsletterMessage');
+    if (form) {
+        form.addEventListener('submit', e => {
             e.preventDefault();
             const email = document.getElementById('newsletterEmail').value;
-
-            if (!email) {
-                newsletterMessage.textContent = 'Inserisci un indirizzo email valido.';
-                newsletterMessage.className = 'form-message error';
-                return;
-            }
-
-            const btn = newsletterForm.querySelector('.btn');
-            const originalText = btn.textContent;
-            btn.textContent = 'Invio...';
-            btn.disabled = true;
-
+            if (!email) { msg.textContent = 'Inserisci un indirizzo email valido.'; msg.className = 'form-msg error'; return; }
+            const btn = form.querySelector('.btn');
+            const txt = btn.textContent;
+            btn.textContent = 'Invio...'; btn.disabled = true;
             setTimeout(() => {
-                newsletterMessage.textContent = 'Grazie! Ti sei iscritto alla newsletter de La Bulle.';
-                newsletterMessage.className = 'form-message success';
-                newsletterForm.reset();
-                btn.textContent = originalText;
-                btn.disabled = false;
-
-                setTimeout(() => {
-                    newsletterMessage.textContent = '';
-                    newsletterMessage.className = 'form-message';
-                }, 5000);
+                msg.textContent = 'Grazie! Ti sei iscritto alla newsletter de La Bulle.';
+                msg.className = 'form-msg success';
+                form.reset(); btn.textContent = txt; btn.disabled = false;
+                setTimeout(() => { msg.textContent = ''; msg.className = 'form-msg'; }, 5000);
             }, 1200);
         });
     }
 
-    // ---------- Smooth Scroll ----------
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const target = document.querySelector(targetId);
-            if (target) {
-                e.preventDefault();
-                const navHeight = navbar.offsetHeight;
-                window.scrollTo({
-                    top: target.offsetTop - navHeight,
-                    behavior: 'smooth'
-                });
-            }
+    // — Smooth scroll —
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+            const id = this.getAttribute('href');
+            if (id === '#') return;
+            const t = document.querySelector(id);
+            if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - navbar.offsetHeight, behavior: 'smooth' }); }
         });
     });
 
-    // ---------- Hero Parallax ----------
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
+    // — Hero parallax —
+    const hero = document.querySelector('.hero-content');
+    if (hero) {
         window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            if (scrolled < window.innerHeight) {
-                heroContent.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
-                heroContent.style.opacity = 1 - (scrolled / window.innerHeight * 0.8);
+            const s = window.scrollY;
+            if (s < window.innerHeight) {
+                hero.style.transform = 'translateY(' + (s * 0.25) + 'px)';
+                hero.style.opacity = 1 - (s / window.innerHeight * 0.7);
             }
         }, { passive: true });
     }
-
 });
