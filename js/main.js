@@ -1,6 +1,6 @@
 /* ============================================
    LA BULLE — Bar & Enoteca
-   Creative & Fun JavaScript
+   JavaScript — Accordion, Tabs & Interactions
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const txt = btn.textContent;
             btn.textContent = 'Invio...'; btn.disabled = true;
             setTimeout(() => {
-                msg.textContent = 'Perfetto! Sei dei nostri. Preparati a ricevere roba bella.';
+                msg.textContent = 'Perfetto! Sei dei nostri.';
                 msg.className = 'form-msg success';
                 form.reset(); btn.textContent = txt; btn.disabled = false;
                 setTimeout(() => { msg.textContent = ''; msg.className = 'form-msg'; }, 5000);
@@ -110,13 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 bubblesBg.appendChild(bubble);
                 bubble.addEventListener('animationend', () => bubble.remove());
             };
-
-            // Initial batch
             for (let i = 0; i < 6; i++) {
                 setTimeout(createBubble, i * 800);
             }
-
-            // Ongoing bubbles
             setInterval(() => {
                 if (bubblesBg.children.length < 10) {
                     createBubble();
@@ -143,4 +139,40 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // — Menu Tabs —
+    const menuTabs = document.querySelectorAll('.menu-tab');
+    const menuPanels = document.querySelectorAll('.menu-panel');
+    menuTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-tab');
+            menuTabs.forEach(t => t.classList.remove('active'));
+            menuPanels.forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            const panel = document.getElementById('menu-' + target);
+            if (panel) {
+                panel.classList.add('active');
+                // Re-observe anim elements inside the newly shown panel
+                panel.querySelectorAll('.anim:not(.visible)').forEach(el => obs.observe(el));
+            }
+        });
+    });
+
+    // — Event Accordion —
+    document.querySelectorAll('.event-accordion').forEach(accordion => {
+        const header = accordion.querySelector('.event-header');
+        header.addEventListener('click', () => {
+            const isOpen = accordion.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.event-accordion.open').forEach(a => {
+                a.classList.remove('open');
+                a.querySelector('.event-header').setAttribute('aria-expanded', 'false');
+            });
+            // Open clicked if it was closed
+            if (!isOpen) {
+                accordion.classList.add('open');
+                header.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
 });

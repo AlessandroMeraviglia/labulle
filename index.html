@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La Bulle - Bar Enoteca a Legnano. Vini pregiati, taglieri ricercati e un'atmosfera unica in Via XXV Aprile.">
+    <meta name="description" content="La Bulle - Bar Enoteca a Legnano. Tutto per un calice di vino. Vini pregiati, taglieri ricercati e un'atmosfera unica in Via XXV Aprile.">
     <meta name="keywords" content="bar enoteca, wine bar, vini, aperitivo, Legnano, La Bulle">
     <meta name="author" content="La Bulle">
     <meta name="theme-color" content="#1e1e1e">
-    <meta property="og:title" content="La Bulle - Bar Enoteca">
-    <meta property="og:description" content="Vini pregiati, taglieri ricercati e un'atmosfera unica a Legnano.">
+    <meta property="og:title" content="La Bulle - Bar Enoteca | Tutto per un calice di vino">
+    <meta property="og:description" content="Tutto per un calice di vino. Vini pregiati, taglieri ricercati e un'atmosfera unica a Legnano.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
-    <title>La Bulle — Bar Enoteca</title>
+    <title>La Bulle — Bar Enoteca | Tutto per un calice di vino</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -42,6 +42,11 @@
 
     <!-- Hero -->
     <section id="hero" class="hero">
+        <div class="hero-bg-image">
+            <!-- L'utente carica l'immagine in /img -->
+            <img src="img/hero-bg.jpg" alt="" class="hero-bg-img">
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-inner">
             <div class="hero-content">
                 <p class="hero-tag anim">Bar &amp; Enoteca &mdash; Legnano</p>
@@ -49,16 +54,11 @@
                     <img src="img/Text_LaBulle_Legnano@2x.png" alt="La Bulle" class="hero-logo-img">
                 </h1>
                 <div class="hero-right anim">
-                    <p class="hero-desc">La vita &egrave; troppo corta per bere male.<br>Vini che raccontano storie, taglieri che fanno innamorare e un'atmosfera che non vorrai pi&ugrave; lasciare.</p>
+                    <p class="hero-claim">Tutto per un calice di vino.</p>
+                    <p class="hero-desc">Vini che raccontano storie, taglieri che fanno innamorare e un'atmosfera che non vorrai pi&ugrave; lasciare.</p>
                     <div class="hero-actions">
-                        <a href="#menu" class="btn btn--fun">
-                            <span class="btn-text">Scopri la Carta</span>
-                            <span class="btn-icon">&#127863;</span>
-                        </a>
-                        <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline btn--fun">
-                            <span class="btn-text">Prenota</span>
-                            <span class="btn-icon">&#128172;</span>
-                        </a>
+                        <a href="#menu" class="btn">Scopri la Carta</a>
+                        <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline">Prenota</a>
                     </div>
                 </div>
             </div>
@@ -72,30 +72,30 @@
     <!-- Ticker Marquee -->
     <div class="ticker" aria-hidden="true">
         <div class="ticker-track">
-            <span class="ticker-item">Vini Naturali</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Tutto per un calice di vino</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Taglieri d'Autore</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Aperitivo Perfetto</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Musica Live</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Degustazioni</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Bollicine Sempre</span>
-            <span class="ticker-dot">&#9679;</span>
-            <span class="ticker-item">Vini Naturali</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
+            <span class="ticker-item">Tutto per un calice di vino</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Taglieri d'Autore</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Aperitivo Perfetto</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Musica Live</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Degustazioni</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Bollicine Sempre</span>
-            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-dot">&middot;</span>
         </div>
     </div>
 
@@ -111,8 +111,7 @@
                     <p><strong>La Bulle</strong> &egrave; nata da un'idea semplice: un posto dove il vino si beve bene, si mangia meglio e si ride tanto. A Legnano, in Via XXV Aprile, abbiamo creato il rifugio che avremmo voluto trovare noi per primi.</p>
                     <p>La nostra selezione di vini? Curata a mano, con un debole per i produttori biologici e biodinamici. Il vino giusto per te? Lascia fare a noi &mdash; al tavolo facciamo magie.</p>
                     <div class="about-badge anim">
-                        <span class="badge-icon">&#127870;</span>
-                        <span class="badge-text">Apri una bottiglia,<br>chiudi i problemi.</span>
+                        <span class="badge-text">Tutto per un calice di vino.</span>
                     </div>
                 </div>
             </div>
@@ -124,22 +123,22 @@
         <div class="container">
             <div class="pillars-grid">
                 <div class="pillar tilt-card anim">
-                    <span class="pillar-emoji">&#127968;</span>
+                    <span class="pillar-num">01</span>
                     <h3 class="pillar-title">Locale</h3>
                     <p>Luci calde, musica giusta, atmosfera che ti fa dimenticare di aver parcheggiato in doppia fila. Entri per un calice, resti per la serata.</p>
                 </div>
                 <div class="pillar tilt-card anim">
-                    <span class="pillar-emoji">&#127858;</span>
+                    <span class="pillar-num">02</span>
                     <h3 class="pillar-title">Cucina</h3>
                     <p>Taglieri che sembrano opere d'arte (ma si mangiano molto meglio). Ingredienti di stagione, produttori locali, zero compromessi.</p>
                 </div>
                 <div class="pillar tilt-card anim">
-                    <span class="pillar-emoji">&#127863;</span>
+                    <span class="pillar-num">03</span>
                     <h3 class="pillar-title">Vino</h3>
                     <p>Non trovi la carta dei vini? &Egrave; voluto. Ci piace guardarti negli occhi e consigliarti il calice perfetto. Fidati, funziona.</p>
                 </div>
                 <div class="pillar tilt-card anim">
-                    <span class="pillar-emoji">&#127925;</span>
+                    <span class="pillar-num">04</span>
                     <h3 class="pillar-title">Musica</h3>
                     <p>DJ set, live acustico, vinili che girano. La colonna sonora giusta rende tutto pi&ugrave; buono &mdash; anche il secondo bicchiere.</p>
                 </div>
@@ -164,74 +163,263 @@
             <div class="section-label anim"><span class="label-num">02</span><span class="label-line"></span><span>La Carta</span></div>
             <div class="menu-header anim">
                 <h2 class="display-heading">Roba seria,<br>travestita da <em>aperitivo</em></h2>
-                <p class="menu-header-sub">I piatti che accompagnano i nostri vini.<br>Per i vini, fidatevi del nostro barista (ne sa pi&ugrave; di Wikipedia).</p>
             </div>
 
-            <div class="menu-columns">
-                <div class="menu-col anim">
-                    <h3 class="menu-cat">
-                        <span class="menu-cat-emoji">&#129472;</span>
-                        Taglieri
-                    </h3>
-                    <ul class="menu-list">
-                        <li class="menu-item tilt-card">
-                            <div class="menu-item-top">
-                                <span class="menu-name">Tagliere La Bulle</span>
-                                <span class="menu-price">&euro;24</span>
-                            </div>
-                            <p class="menu-desc">5 formaggi + 4 salumi + miele + confetture + grissini artigianali. Pratica&shy;mente, la felicit&agrave;.</p>
-                        </li>
-                        <li class="menu-item tilt-card">
-                            <div class="menu-item-top">
-                                <span class="menu-name">Tagliere Formaggi</span>
-                                <span class="menu-price">&euro;18</span>
-                            </div>
-                            <p class="menu-desc">5 formaggi selezionati, miele di acacia, noci e mostarda. Il paradiso dei cheese-lover.</p>
-                        </li>
-                        <li class="menu-item tilt-card">
-                            <div class="menu-item-top">
-                                <span class="menu-name">Tagliere Salumi</span>
-                                <span class="menu-price">&euro;16</span>
-                            </div>
-                            <p class="menu-desc">Crudo 24 mesi, bresaola, coppa, salame e lardo. Non servono altre parole.</p>
-                        </li>
-                    </ul>
+            <!-- Menu Tabs -->
+            <div class="menu-tabs anim">
+                <button class="menu-tab active" data-tab="food">Food</button>
+                <button class="menu-tab" data-tab="drink">Drink</button>
+            </div>
+
+            <!-- FOOD MENU -->
+            <div class="menu-panel active" id="menu-food">
+                <div class="menu-columns">
+                    <div class="menu-col anim">
+                        <h3 class="menu-cat">Cucina</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Polpette al sugo</span>
+                                    <span class="menu-price">&euro;10</span>
+                                </div>
+                                <p class="menu-desc">Polpette di manzo cotte lentamente nel sugo di pomodoro. Come quelle della nonna, ma meglio.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Uovo cremoso</span>
+                                    <span class="menu-price">&euro;9</span>
+                                </div>
+                                <p class="menu-desc">Uovo cotto a bassa temperatura, fonduta di parmigiano e tartufo nero.</p>
+                            </li>
+                        </ul>
+
+                        <h3 class="menu-cat">Le Bruschette</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Bruschetta Classica</span>
+                                    <span class="menu-price">&euro;6</span>
+                                </div>
+                                <p class="menu-desc">Pomodorini freschi, basilico, olio EVO e aglio sfregato. Semplice, perfetta.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Bruschetta Burrata</span>
+                                    <span class="menu-price">&euro;9</span>
+                                </div>
+                                <p class="menu-desc">Burrata pugliese, pomodorini confit e basilico fresco.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Bruschetta Nduja</span>
+                                    <span class="menu-price">&euro;8</span>
+                                </div>
+                                <p class="menu-desc">Nduja calabrese, stracciatella e miele di castagno.</p>
+                            </li>
+                        </ul>
+
+                        <h3 class="menu-cat">Gli Sfizi</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Olive Ascolane</span>
+                                    <span class="menu-price">&euro;7</span>
+                                </div>
+                                <p class="menu-desc">Ripiene e fritte con salsa all'aglio nero. Avvertenza: creano dipendenza.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Tartare di Fassona</span>
+                                    <span class="menu-price">&euro;15</span>
+                                </div>
+                                <p class="menu-desc">Battuta al coltello, tuorlo marinato, capperi e crostini.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Crocchette di patate</span>
+                                    <span class="menu-price">&euro;7</span>
+                                </div>
+                                <p class="menu-desc">Croccanti fuori, cremose dentro, con cuore filante di provola affumicata.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-col anim">
+                        <h3 class="menu-cat">Taglieri</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Tagliere La Bulle</span>
+                                    <span class="menu-price">&euro;24</span>
+                                </div>
+                                <p class="menu-desc">5 formaggi + 4 salumi + miele + confetture + grissini artigianali. Praticamente, la felicit&agrave;.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Tagliere Formaggi</span>
+                                    <span class="menu-price">&euro;18</span>
+                                </div>
+                                <p class="menu-desc">5 formaggi selezionati, miele di acacia, noci e mostarda.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Tagliere Salumi</span>
+                                    <span class="menu-price">&euro;16</span>
+                                </div>
+                                <p class="menu-desc">Crudo 24 mesi, bresaola, coppa, salame e lardo.</p>
+                            </li>
+                        </ul>
+
+                        <h3 class="menu-cat">Ostriche</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Ostriche Fine de Claire</span>
+                                    <span class="menu-price">&euro;4 / pz</span>
+                                </div>
+                                <p class="menu-desc">Servite con limone fresco e pane di segale.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Plateau 6 pezzi</span>
+                                    <span class="menu-price">&euro;22</span>
+                                </div>
+                                <p class="menu-desc">Selezione di ostriche con salsa mignonette e limone.</p>
+                            </li>
+                        </ul>
+
+                        <h3 class="menu-cat">Le Piade</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Piada Crudo e Squacquerone</span>
+                                    <span class="menu-price">&euro;9</span>
+                                </div>
+                                <p class="menu-desc">Crudo di Parma, squacquerone DOP e rucola.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Piada Mortadella</span>
+                                    <span class="menu-price">&euro;8</span>
+                                </div>
+                                <p class="menu-desc">Mortadella Bologna IGP, stracciatella e pistacchi.</p>
+                            </li>
+                        </ul>
+
+                        <h3 class="menu-cat">Dolci</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Tiramisù della casa</span>
+                                    <span class="menu-price">&euro;7</span>
+                                </div>
+                                <p class="menu-desc">La nostra ricetta classica, con mascarpone fresco e caff&egrave; espresso.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Panna cotta</span>
+                                    <span class="menu-price">&euro;6</span>
+                                </div>
+                                <p class="menu-desc">Con coulis di frutti di bosco e crumble di biscotto.</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="menu-col anim">
-                    <h3 class="menu-cat">
-                        <span class="menu-cat-emoji">&#129367;</span>
-                        Sfizi
-                    </h3>
-                    <ul class="menu-list">
-                        <li class="menu-item tilt-card">
-                            <div class="menu-item-top">
-                                <span class="menu-name">Bruschette Miste</span>
-                                <span class="menu-price">&euro;10</span>
-                            </div>
-                            <p class="menu-desc">Pomodorini, burrata, nduja e tartare di tonno. Quattro bruschette, zero rimpianti.</p>
-                        </li>
-                        <li class="menu-item tilt-card">
-                            <div class="menu-item-top">
-                                <span class="menu-name">Olive Ascolane</span>
-                                <span class="menu-price">&euro;7</span>
-                            </div>
-                            <p class="menu-desc">Ripiene e fritte con salsa all'aglio nero. Avvertenza: creano dipendenza.</p>
-                        </li>
-                        <li class="menu-item tilt-card">
-                            <div class="menu-item-top">
-                                <span class="menu-name">Tartare di Fassona</span>
-                                <span class="menu-price">&euro;15</span>
-                            </div>
-                            <p class="menu-desc">Battuta al coltello, tuorlo marinato, capperi e crostini. Per chi sa cosa vuole dalla vita.</p>
-                        </li>
-                    </ul>
+            </div>
+
+            <!-- DRINK MENU -->
+            <div class="menu-panel" id="menu-drink">
+                <div class="menu-columns">
+                    <div class="menu-col anim">
+                        <h3 class="menu-cat">Vini</h3>
+                        <div class="menu-note">
+                            <p>Per i vini, fidatevi di noi. La nostra selezione cambia ogni settimana e il nostro staff &egrave; pronto a guidarvi nel calice perfetto per voi.</p>
+                        </div>
+
+                        <h3 class="menu-cat">Cocktail</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Negroni</span>
+                                    <span class="menu-price">&euro;10</span>
+                                </div>
+                                <p class="menu-desc">Gin, Campari, Vermouth rosso. Il classico che non tradisce mai.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Spritz</span>
+                                    <span class="menu-price">&euro;8</span>
+                                </div>
+                                <p class="menu-desc">Prosecco, Aperol, soda. L'aperitivo per eccellenza.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Old Fashioned</span>
+                                    <span class="menu-price">&euro;12</span>
+                                </div>
+                                <p class="menu-desc">Bourbon, zucchero, Angostura, scorza d'arancia.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Gin Tonic Premium</span>
+                                    <span class="menu-price">&euro;11</span>
+                                </div>
+                                <p class="menu-desc">Gin selezionato, tonica premium e botaniche fresche.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-col anim">
+                        <h3 class="menu-cat">Cocktail Analcolici</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Virgin Mojito</span>
+                                    <span class="menu-price">&euro;7</span>
+                                </div>
+                                <p class="menu-desc">Lime, menta fresca, zucchero di canna e soda.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Fruit Spritz</span>
+                                    <span class="menu-price">&euro;7</span>
+                                </div>
+                                <p class="menu-desc">Soda, succo di frutto della passione, sciroppo di fiori di sambuco.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Ginger Mule</span>
+                                    <span class="menu-price">&euro;7</span>
+                                </div>
+                                <p class="menu-desc">Ginger beer, lime e menta. Fresco e dissetante.</p>
+                            </li>
+                        </ul>
+
+                        <h3 class="menu-cat">Birre</h3>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Birra alla spina</span>
+                                    <span class="menu-price">&euro;5</span>
+                                </div>
+                                <p class="menu-desc">Selezione rotante di birre artigianali italiane. Chiedi al bancone.</p>
+                            </li>
+                            <li class="menu-item">
+                                <div class="menu-item-top">
+                                    <span class="menu-name">Birra artigianale bottiglia</span>
+                                    <span class="menu-price">&euro;6</span>
+                                </div>
+                                <p class="menu-desc">IPA, Lager, Weiss &mdash; selezione di birrifici locali e nazionali.</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="menu-cta anim">
-                <a href="#" class="btn btn--outline btn--icon btn--fun">
+                <a href="#" class="btn btn--outline btn--icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    <span class="btn-text">Scarica il Menu PDF</span>
+                    Scarica il Menu PDF
                 </a>
             </div>
         </div>
@@ -266,29 +454,29 @@
     <div class="ticker ticker--reverse" aria-hidden="true">
         <div class="ticker-track">
             <span class="ticker-item">Cin Cin</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Salute</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Alla Nostra</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Prost</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Cheers</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Sant&eacute;</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Cin Cin</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Salute</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Alla Nostra</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Prost</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Cheers</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
             <span class="ticker-item">Sant&eacute;</span>
-            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-dot">&middot;</span>
         </div>
     </div>
 
@@ -298,37 +486,82 @@
             <div class="section-label anim"><span class="label-num">04</span><span class="label-line"></span><span>Eventi</span></div>
             <h2 class="display-heading anim">Qui non ci si<br>annoia <em>mai</em></h2>
             <div class="events-list">
-                <article class="event-row tilt-card anim">
-                    <div class="event-index">01</div>
-                    <div class="event-body">
+                <article class="event-accordion anim">
+                    <button class="event-header" aria-expanded="false">
+                        <span class="event-index">01</span>
                         <h3 class="event-name">Degustazione Guidata</h3>
-                        <p class="event-desc">Ogni gioved&igrave; ti portiamo in giro per l'Italia (senza muoverti dalla sedia). 4 calici + tagliere incluso. Spoiler: finirai per ordinarne un quinto.</p>
-                    </div>
-                    <div class="event-meta">
                         <span class="event-when">Gioved&igrave; &middot; 20:00</span>
-                        <span class="event-price">&euro;35 / persona</span>
+                        <span class="event-toggle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="event-body">
+                        <div class="event-body-inner">
+                            <div class="event-info">
+                                <p class="event-desc">Ogni gioved&igrave; ti portiamo in giro per l'Italia (senza muoverti dalla sedia). 4 calici + tagliere incluso. Spoiler: finirai per ordinarne un quinto.</p>
+                                <div class="event-details">
+                                    <span class="event-detail"><strong>Quando:</strong> Ogni gioved&igrave;, ore 20:00</span>
+                                    <span class="event-detail"><strong>Prezzo:</strong> &euro;35 / persona</span>
+                                    <span class="event-detail"><strong>Include:</strong> 4 calici + tagliere</span>
+                                </div>
+                                <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--sm">Prenota il tuo posto</a>
+                            </div>
+                            <div class="event-poster">
+                                <div class="event-poster-placeholder"><span>Locandina</span></div>
+                            </div>
+                        </div>
                     </div>
                 </article>
-                <article class="event-row tilt-card anim">
-                    <div class="event-index">02</div>
-                    <div class="event-body">
+                <article class="event-accordion anim">
+                    <button class="event-header" aria-expanded="false">
+                        <span class="event-index">02</span>
                         <h3 class="event-name">Live Music &amp; Wine</h3>
-                        <p class="event-desc">Venerd&igrave; sera: musica dal vivo, calici in mano, problemi alla porta. L'abbinamento perfetto non &egrave; solo cibo e vino.</p>
-                    </div>
-                    <div class="event-meta">
                         <span class="event-when">Venerd&igrave; &middot; 21:30</span>
-                        <span class="event-price">Ingresso libero</span>
+                        <span class="event-toggle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="event-body">
+                        <div class="event-body-inner">
+                            <div class="event-info">
+                                <p class="event-desc">Venerd&igrave; sera: musica dal vivo, calici in mano, problemi alla porta. L'abbinamento perfetto non &egrave; solo cibo e vino.</p>
+                                <div class="event-details">
+                                    <span class="event-detail"><strong>Quando:</strong> Ogni venerd&igrave;, ore 21:30</span>
+                                    <span class="event-detail"><strong>Prezzo:</strong> Ingresso libero</span>
+                                    <span class="event-detail"><strong>Generi:</strong> Jazz, Soul, Acustico</span>
+                                </div>
+                                <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--sm">Info e prenotazioni</a>
+                            </div>
+                            <div class="event-poster">
+                                <div class="event-poster-placeholder"><span>Locandina</span></div>
+                            </div>
+                        </div>
                     </div>
                 </article>
-                <article class="event-row tilt-card anim">
-                    <div class="event-index">03</div>
-                    <div class="event-body">
+                <article class="event-accordion anim">
+                    <button class="event-header" aria-expanded="false">
+                        <span class="event-index">03</span>
                         <h3 class="event-name">Meet the Winemaker</h3>
-                        <p class="event-desc">Una volta al mese un produttore racconta i suoi vini davanti a chi sa apprezzarli. Ovvero: tu, con il calice in mano.</p>
-                    </div>
-                    <div class="event-meta">
                         <span class="event-when">Sabato &middot; 19:00</span>
-                        <span class="event-price">&euro;45 / persona</span>
+                        <span class="event-toggle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="event-body">
+                        <div class="event-body-inner">
+                            <div class="event-info">
+                                <p class="event-desc">Una volta al mese un produttore racconta i suoi vini davanti a chi sa apprezzarli. Ovvero: tu, con il calice in mano.</p>
+                                <div class="event-details">
+                                    <span class="event-detail"><strong>Quando:</strong> Un sabato al mese, ore 19:00</span>
+                                    <span class="event-detail"><strong>Prezzo:</strong> &euro;45 / persona</span>
+                                    <span class="event-detail"><strong>Include:</strong> Degustazione + tagliere</span>
+                                </div>
+                                <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--sm">Prenota il tuo posto</a>
+                            </div>
+                            <div class="event-poster">
+                                <div class="event-poster-placeholder"><span>Locandina</span></div>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -359,17 +592,16 @@
     <section class="section section--cta">
         <div class="container">
             <div class="cta-layout anim">
-                <span class="cta-emoji">&#127870;</span>
                 <h2 class="display-heading display-heading--center">Il tuo tavolo<br>ti <em>aspetta</em></h2>
                 <p class="cta-sub">Un messaggio, una chiamata, e sei dentro. Facile, no?</p>
                 <div class="cta-actions">
-                    <a href="tel:+393454528790" class="btn btn--icon btn--fun">
+                    <a href="tel:+393454528790" class="btn btn--icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        <span class="btn-text">Chiama</span>
+                        Chiama
                     </a>
-                    <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline btn--icon btn--fun">
+                    <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline btn--icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-                        <span class="btn-text">WhatsApp</span>
+                        WhatsApp
                     </a>
                 </div>
                 <span class="cta-phone">+39 345 452 8790</span>
@@ -384,19 +616,16 @@
             <h2 class="display-heading anim">Vieni, ti<br><em>aspettiamo</em></h2>
             <div class="contact-grid anim">
                 <div class="contact-block tilt-card">
-                    <span class="contact-emoji">&#128222;</span>
                     <h4>Telefono</h4>
                     <p><a href="tel:+393454528790">+39 345 452 8790</a></p>
                     <span class="contact-note">Chiamate &amp; WhatsApp</span>
                 </div>
                 <div class="contact-block tilt-card">
-                    <span class="contact-emoji">&#128205;</span>
                     <h4>Indirizzo</h4>
                     <p>Via XXV Aprile, 15</p>
                     <span class="contact-note">20025 Legnano (MI)</span>
                 </div>
                 <div class="contact-block tilt-card">
-                    <span class="contact-emoji">&#128336;</span>
                     <h4>Orari</h4>
                     <p>Mar &mdash; Dom: 18:00 / 00:00</p>
                     <span class="contact-note">Luned&igrave; chiuso (anche noi riposiamo!)</span>
@@ -405,9 +634,7 @@
             <div class="contact-map anim">
                 <div class="map-placeholder">
                     <p>La Bulle &mdash; Via XXV Aprile, 15 &mdash; Legnano (MI)</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Via+XXV+Aprile+15+20025+Legnano+MI" target="_blank" rel="noopener" class="btn btn--outline btn--sm btn--fun">
-                        <span class="btn-text">Apri in Google Maps</span>
-                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Via+XXV+Aprile+15+20025+Legnano+MI" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Apri in Google Maps</a>
                 </div>
             </div>
         </div>
@@ -420,7 +647,7 @@
                 <div class="footer-brand">
                     <img src="img/Logo_Labulle_Legnano@2x.png" alt="La Bulle" class="footer-logo-img">
                     <p>Bar &amp; Enoteca &middot; Legnano</p>
-                    <p class="footer-tagline">Dove ogni bolla racconta una storia.</p>
+                    <p class="footer-tagline">Tutto per un calice di vino.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigazione</h4>
@@ -450,7 +677,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 La Bulle &mdash; Tutti i diritti riservati.</p>
-                <p>P.IVA 00000000000 &middot; Bevi responsabilmente (ma divertiti irresponsabilmente)</p>
+                <p>P.IVA 00000000000</p>
             </div>
         </div>
     </footer>
