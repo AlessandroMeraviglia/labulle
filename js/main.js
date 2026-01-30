@@ -1,6 +1,6 @@
 /* ============================================
    LA BULLE — Bar & Enoteca
-   Main JavaScript
+   Creative & Fun JavaScript
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const txt = btn.textContent;
             btn.textContent = 'Invio...'; btn.disabled = true;
             setTimeout(() => {
-                msg.textContent = 'Grazie! Ti sei iscritto alla newsletter de La Bulle.';
+                msg.textContent = 'Perfetto! Sei dei nostri. Preparati a ricevere roba bella.';
                 msg.className = 'form-msg success';
                 form.reset(); btn.textContent = txt; btn.disabled = false;
                 setTimeout(() => { msg.textContent = ''; msg.className = 'form-msg'; }, 5000);
@@ -91,5 +91,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 hero.style.opacity = 1 - (s / window.innerHeight * 0.7);
             }
         }, { passive: true });
+    }
+
+    // — Floating Bubbles —
+    const bubblesBg = document.getElementById('bubblesBg');
+    if (bubblesBg) {
+        const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!isReducedMotion) {
+            const createBubble = () => {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 80 + 20;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.animationDuration = (Math.random() * 12 + 10) + 's';
+                bubble.style.animationDelay = (Math.random() * 4) + 's';
+                bubblesBg.appendChild(bubble);
+                bubble.addEventListener('animationend', () => bubble.remove());
+            };
+
+            // Initial batch
+            for (let i = 0; i < 6; i++) {
+                setTimeout(createBubble, i * 800);
+            }
+
+            // Ongoing bubbles
+            setInterval(() => {
+                if (bubblesBg.children.length < 10) {
+                    createBubble();
+                }
+            }, 2500);
+        }
+    }
+
+    // — Tilt Card Effect (desktop only) —
+    if (window.matchMedia('(min-width: 769px) and (hover: hover)').matches) {
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -4;
+                const rotateY = ((x - centerX) / centerX) * 4;
+                card.style.transform = 'perspective(600px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
     }
 });

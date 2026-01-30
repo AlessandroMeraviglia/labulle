@@ -20,6 +20,9 @@
 </head>
 <body>
 
+    <!-- Floating Bubbles Background -->
+    <div class="bubbles-bg" id="bubblesBg" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav id="navbar" class="navbar">
         <div class="nav-container">
@@ -46,18 +49,55 @@
                     <img src="img/Text_LaBulle_Legnano@2x.png" alt="La Bulle" class="hero-logo-img">
                 </h1>
                 <div class="hero-right anim">
-                    <p class="hero-desc">Dove ogni sorso racconta una storia. Vini selezionati, taglieri ricercati e un'atmosfera che avvolge.</p>
+                    <p class="hero-desc">La vita &egrave; troppo corta per bere male.<br>Vini che raccontano storie, taglieri che fanno innamorare e un'atmosfera che non vorrai pi&ugrave; lasciare.</p>
                     <div class="hero-actions">
-                        <a href="#menu" class="btn">Scopri la Carta</a>
-                        <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline">Prenota</a>
+                        <a href="#menu" class="btn btn--fun">
+                            <span class="btn-text">Scopri la Carta</span>
+                            <span class="btn-icon">&#127863;</span>
+                        </a>
+                        <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline btn--fun">
+                            <span class="btn-text">Prenota</span>
+                            <span class="btn-icon">&#128172;</span>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="hero-scroll">
+                <span class="hero-scroll-text">Scorri</span>
                 <span class="hero-scroll-line"></span>
             </div>
         </div>
     </section>
+
+    <!-- Ticker Marquee -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+            <span class="ticker-item">Vini Naturali</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Taglieri d'Autore</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Aperitivo Perfetto</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Musica Live</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Degustazioni</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Bollicine Sempre</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Vini Naturali</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Taglieri d'Autore</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Aperitivo Perfetto</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Musica Live</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Degustazioni</span>
+            <span class="ticker-dot">&#9679;</span>
+            <span class="ticker-item">Bollicine Sempre</span>
+            <span class="ticker-dot">&#9679;</span>
+        </div>
+    </div>
 
     <!-- About -->
     <section id="about" class="section">
@@ -65,11 +105,15 @@
             <div class="section-label anim"><span class="label-num">01</span><span class="label-line"></span><span>Chi Siamo</span></div>
             <div class="about-layout">
                 <div class="about-col-left anim">
-                    <h2 class="display-heading">Un angolo<br>di eleganza<br>dedicato al<br><em>piacere</em></h2>
+                    <h2 class="display-heading">Non il solito<br>bar sotto<br>casa.<br><em>Per fortuna.</em></h2>
                 </div>
                 <div class="about-col-right anim">
-                    <p><strong>La Bulle</strong> nasce dalla passione per il vino e dalla voglia di creare uno spazio dove il tempo rallenta. A Legnano, in Via XXV Aprile, il nostro bar enoteca è un rifugio per chi cerca qualità, atmosfera e convivialità.</p>
-                    <p>La nostra selezione di vini viene curata personalmente, con un'attenzione particolare ai produttori biologici e biodinamici. Il vino giusto? Ve lo consigliamo noi, di persona.</p>
+                    <p><strong>La Bulle</strong> &egrave; nata da un'idea semplice: un posto dove il vino si beve bene, si mangia meglio e si ride tanto. A Legnano, in Via XXV Aprile, abbiamo creato il rifugio che avremmo voluto trovare noi per primi.</p>
+                    <p>La nostra selezione di vini? Curata a mano, con un debole per i produttori biologici e biodinamici. Il vino giusto per te? Lascia fare a noi &mdash; al tavolo facciamo magie.</p>
+                    <div class="about-badge anim">
+                        <span class="badge-icon">&#127870;</span>
+                        <span class="badge-text">Apri una bottiglia,<br>chiudi i problemi.</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,27 +123,38 @@
     <section class="section section--dark">
         <div class="container">
             <div class="pillars-grid">
-                <div class="pillar anim">
-                    <span class="pillar-num">01</span>
+                <div class="pillar tilt-card anim">
+                    <span class="pillar-emoji">&#127968;</span>
                     <h3 class="pillar-title">Locale</h3>
-                    <p>Un ambiente unico e accogliente. L'illuminazione calda, i dettagli curati e l'<em>atmosfera</em> ti avvolgono fin dal primo passo.</p>
+                    <p>Luci calde, musica giusta, atmosfera che ti fa dimenticare di aver parcheggiato in doppia fila. Entri per un calice, resti per la serata.</p>
                 </div>
-                <div class="pillar anim">
-                    <span class="pillar-num">02</span>
+                <div class="pillar tilt-card anim">
+                    <span class="pillar-emoji">&#127858;</span>
                     <h3 class="pillar-title">Cucina</h3>
-                    <p>Taglieri e piatti pensati per accompagnare ogni calice. Ingredienti di <em>stagione</em>, produttori locali e cura in ogni dettaglio.</p>
+                    <p>Taglieri che sembrano opere d'arte (ma si mangiano molto meglio). Ingredienti di stagione, produttori locali, zero compromessi.</p>
                 </div>
-                <div class="pillar anim">
-                    <span class="pillar-num">03</span>
+                <div class="pillar tilt-card anim">
+                    <span class="pillar-emoji">&#127863;</span>
                     <h3 class="pillar-title">Vino</h3>
-                    <p>La selezione viene consigliata direttamente al tavolo. Ogni sera, il calice giusto per il <em>momento</em> giusto.</p>
+                    <p>Non trovi la carta dei vini? &Egrave; voluto. Ci piace guardarti negli occhi e consigliarti il calice perfetto. Fidati, funziona.</p>
                 </div>
-                <div class="pillar anim">
-                    <span class="pillar-num">04</span>
+                <div class="pillar tilt-card anim">
+                    <span class="pillar-emoji">&#127925;</span>
                     <h3 class="pillar-title">Musica</h3>
-                    <p>Serate a tema, dj set e musica dal vivo per rendere ogni visita un momento <em>speciale</em> da vivere.</p>
+                    <p>DJ set, live acustico, vinili che girano. La colonna sonora giusta rende tutto pi&ugrave; buono &mdash; anche il secondo bicchiere.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Big Quote -->
+    <section class="section section--quote">
+        <div class="container">
+            <blockquote class="big-quote anim">
+                <span class="big-quote-mark">&ldquo;</span>
+                <p>Il vino &egrave; la risposta.<br>Non ricordo la domanda.</p>
+                <span class="big-quote-mark big-quote-mark--end">&rdquo;</span>
+            </blockquote>
         </div>
     </section>
 
@@ -108,69 +163,75 @@
         <div class="container">
             <div class="section-label anim"><span class="label-num">02</span><span class="label-line"></span><span>La Carta</span></div>
             <div class="menu-header anim">
-                <h2 class="display-heading">Il nostro<br><em>Menu</em></h2>
-                <p class="menu-header-sub">I piatti che accompagnano i nostri vini.<br>Per i vini, affidatevi ai nostri consigli al tavolo.</p>
+                <h2 class="display-heading">Roba seria,<br>travestita da <em>aperitivo</em></h2>
+                <p class="menu-header-sub">I piatti che accompagnano i nostri vini.<br>Per i vini, fidatevi del nostro barista (ne sa pi&ugrave; di Wikipedia).</p>
             </div>
 
             <div class="menu-columns">
                 <div class="menu-col anim">
-                    <h3 class="menu-cat">Taglieri</h3>
+                    <h3 class="menu-cat">
+                        <span class="menu-cat-emoji">&#129472;</span>
+                        Taglieri
+                    </h3>
                     <ul class="menu-list">
-                        <li class="menu-item">
+                        <li class="menu-item tilt-card">
                             <div class="menu-item-top">
                                 <span class="menu-name">Tagliere La Bulle</span>
                                 <span class="menu-price">&euro;24</span>
                             </div>
-                            <p class="menu-desc">Selezione di 5 formaggi e 4 salumi, miele, confetture e grissini artigianali</p>
+                            <p class="menu-desc">5 formaggi + 4 salumi + miele + confetture + grissini artigianali. Pratica&shy;mente, la felicit&agrave;.</p>
                         </li>
-                        <li class="menu-item">
+                        <li class="menu-item tilt-card">
                             <div class="menu-item-top">
                                 <span class="menu-name">Tagliere Formaggi</span>
                                 <span class="menu-price">&euro;18</span>
                             </div>
-                            <p class="menu-desc">5 formaggi selezionati, miele di acacia, noci e mostarda</p>
+                            <p class="menu-desc">5 formaggi selezionati, miele di acacia, noci e mostarda. Il paradiso dei cheese-lover.</p>
                         </li>
-                        <li class="menu-item">
+                        <li class="menu-item tilt-card">
                             <div class="menu-item-top">
                                 <span class="menu-name">Tagliere Salumi</span>
                                 <span class="menu-price">&euro;16</span>
                             </div>
-                            <p class="menu-desc">Prosciutto crudo 24 mesi, bresaola, coppa, salame e lardo</p>
+                            <p class="menu-desc">Crudo 24 mesi, bresaola, coppa, salame e lardo. Non servono altre parole.</p>
                         </li>
                     </ul>
                 </div>
                 <div class="menu-col anim">
-                    <h3 class="menu-cat">Sfizi</h3>
+                    <h3 class="menu-cat">
+                        <span class="menu-cat-emoji">&#129367;</span>
+                        Sfizi
+                    </h3>
                     <ul class="menu-list">
-                        <li class="menu-item">
+                        <li class="menu-item tilt-card">
                             <div class="menu-item-top">
                                 <span class="menu-name">Bruschette Miste</span>
                                 <span class="menu-price">&euro;10</span>
                             </div>
-                            <p class="menu-desc">Pomodorini, burrata, nduja e tartare di tonno</p>
+                            <p class="menu-desc">Pomodorini, burrata, nduja e tartare di tonno. Quattro bruschette, zero rimpianti.</p>
                         </li>
-                        <li class="menu-item">
+                        <li class="menu-item tilt-card">
                             <div class="menu-item-top">
                                 <span class="menu-name">Olive Ascolane</span>
                                 <span class="menu-price">&euro;7</span>
                             </div>
-                            <p class="menu-desc">Olive ripiene fritte con salsa all'aglio nero</p>
+                            <p class="menu-desc">Ripiene e fritte con salsa all'aglio nero. Avvertenza: creano dipendenza.</p>
                         </li>
-                        <li class="menu-item">
+                        <li class="menu-item tilt-card">
                             <div class="menu-item-top">
                                 <span class="menu-name">Tartare di Fassona</span>
                                 <span class="menu-price">&euro;15</span>
                             </div>
-                            <p class="menu-desc">Battuta al coltello, tuorlo marinato, capperi e crostini</p>
+                            <p class="menu-desc">Battuta al coltello, tuorlo marinato, capperi e crostini. Per chi sa cosa vuole dalla vita.</p>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="menu-cta anim">
-                <a href="#" class="btn btn--outline btn--icon">
+                <a href="#" class="btn btn--outline btn--icon btn--fun">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Scarica il Menu PDF
+                    <span class="btn-text">Scarica il Menu PDF</span>
                 </a>
             </div>
         </div>
@@ -180,7 +241,7 @@
     <section id="gallery" class="section section--dark">
         <div class="container">
             <div class="section-label anim"><span class="label-num">03</span><span class="label-line"></span><span>Atmosfera</span></div>
-            <h2 class="display-heading display-heading--center anim">Il nostro <em>spazio</em></h2>
+            <h2 class="display-heading display-heading--center anim">Non &egrave; solo un bar.<br>&Egrave; un <em>mood</em>.</h2>
             <div class="gallery-grid anim">
                 <div class="gallery-cell gallery-cell--wide">
                     <div class="gallery-placeholder"><span>Il Bancone</span></div>
@@ -201,39 +262,69 @@
         </div>
     </section>
 
+    <!-- Ticker 2 -->
+    <div class="ticker ticker--reverse" aria-hidden="true">
+        <div class="ticker-track">
+            <span class="ticker-item">Cin Cin</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Salute</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Alla Nostra</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Prost</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Cheers</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Sant&eacute;</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Cin Cin</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Salute</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Alla Nostra</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Prost</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Cheers</span>
+            <span class="ticker-dot">&#10022;</span>
+            <span class="ticker-item">Sant&eacute;</span>
+            <span class="ticker-dot">&#10022;</span>
+        </div>
+    </div>
+
     <!-- Events -->
     <section id="events" class="section">
         <div class="container">
             <div class="section-label anim"><span class="label-num">04</span><span class="label-line"></span><span>Eventi</span></div>
-            <h2 class="display-heading anim">Cosa succede<br>a <em>La Bulle</em></h2>
+            <h2 class="display-heading anim">Qui non ci si<br>annoia <em>mai</em></h2>
             <div class="events-list">
-                <article class="event-row anim">
+                <article class="event-row tilt-card anim">
                     <div class="event-index">01</div>
                     <div class="event-body">
                         <h3 class="event-name">Degustazione Guidata</h3>
-                        <p class="event-desc">Ogni giovedì vi accompagniamo alla scoperta di una regione vinicola diversa. 4 calici + tagliere incluso.</p>
+                        <p class="event-desc">Ogni gioved&igrave; ti portiamo in giro per l'Italia (senza muoverti dalla sedia). 4 calici + tagliere incluso. Spoiler: finirai per ordinarne un quinto.</p>
                     </div>
                     <div class="event-meta">
-                        <span class="event-when">Giovedì &middot; 20:00</span>
+                        <span class="event-when">Gioved&igrave; &middot; 20:00</span>
                         <span class="event-price">&euro;35 / persona</span>
                     </div>
                 </article>
-                <article class="event-row anim">
+                <article class="event-row tilt-card anim">
                     <div class="event-index">02</div>
                     <div class="event-body">
                         <h3 class="event-name">Live Music &amp; Wine</h3>
-                        <p class="event-desc">Venerdì sera con musica dal vivo. L'accompagnamento perfetto per un calice in compagnia.</p>
+                        <p class="event-desc">Venerd&igrave; sera: musica dal vivo, calici in mano, problemi alla porta. L'abbinamento perfetto non &egrave; solo cibo e vino.</p>
                     </div>
                     <div class="event-meta">
-                        <span class="event-when">Venerdì &middot; 21:30</span>
+                        <span class="event-when">Venerd&igrave; &middot; 21:30</span>
                         <span class="event-price">Ingresso libero</span>
                     </div>
                 </article>
-                <article class="event-row anim">
+                <article class="event-row tilt-card anim">
                     <div class="event-index">03</div>
                     <div class="event-body">
                         <h3 class="event-name">Meet the Winemaker</h3>
-                        <p class="event-desc">Una volta al mese ospitiamo un produttore che racconta i suoi vini. Degustazione esclusiva.</p>
+                        <p class="event-desc">Una volta al mese un produttore racconta i suoi vini davanti a chi sa apprezzarli. Ovvero: tu, con il calice in mano.</p>
                     </div>
                     <div class="event-meta">
                         <span class="event-when">Sabato &middot; 19:00</span>
@@ -249,16 +340,16 @@
         <div class="container">
             <div class="newsletter-layout anim">
                 <div class="newsletter-text">
-                    <h2 class="display-heading display-heading--sm">Resta<br><em>aggiornato</em></h2>
-                    <p>Iscriviti per ricevere inviti esclusivi, novità e offerte riservate.</p>
+                    <h2 class="display-heading display-heading--sm">Non perderti<br><em>nulla</em></h2>
+                    <p>Iscriviti e sarai il primo a sapere tutto: eventi, serate speciali e offerte che non trovi da nessun'altra parte.</p>
                 </div>
                 <form class="newsletter-form" id="newsletterForm">
                     <div class="newsletter-field">
-                        <input type="email" id="newsletterEmail" name="email" required placeholder="La tua email" autocomplete="email">
+                        <input type="email" id="newsletterEmail" name="email" required placeholder="La tua email migliore" autocomplete="email">
                         <button type="submit" class="btn">Iscriviti</button>
                     </div>
                     <div class="form-msg" id="newsletterMessage"></div>
-                    <p class="newsletter-note">Niente spam. Puoi cancellarti in qualsiasi momento.</p>
+                    <p class="newsletter-note">Niente spam, promesso. Solo roba bella.</p>
                 </form>
             </div>
         </div>
@@ -268,16 +359,17 @@
     <section class="section section--cta">
         <div class="container">
             <div class="cta-layout anim">
-                <h2 class="display-heading display-heading--center">Prenota il tuo<br><em>tavolo</em></h2>
-                <p class="cta-sub">Chiamaci o scrivici su WhatsApp</p>
+                <span class="cta-emoji">&#127870;</span>
+                <h2 class="display-heading display-heading--center">Il tuo tavolo<br>ti <em>aspetta</em></h2>
+                <p class="cta-sub">Un messaggio, una chiamata, e sei dentro. Facile, no?</p>
                 <div class="cta-actions">
-                    <a href="tel:+393454528790" class="btn btn--icon">
+                    <a href="tel:+393454528790" class="btn btn--icon btn--fun">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        Chiama
+                        <span class="btn-text">Chiama</span>
                     </a>
-                    <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline btn--icon">
+                    <a href="https://wa.me/393454528790" target="_blank" rel="noopener" class="btn btn--outline btn--icon btn--fun">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-                        WhatsApp
+                        <span class="btn-text">WhatsApp</span>
                     </a>
                 </div>
                 <span class="cta-phone">+39 345 452 8790</span>
@@ -289,28 +381,33 @@
     <section id="contact" class="section section--dark">
         <div class="container">
             <div class="section-label anim"><span class="label-num">05</span><span class="label-line"></span><span>Contatti</span></div>
-            <h2 class="display-heading anim">Vieni a<br><em>trovarci</em></h2>
+            <h2 class="display-heading anim">Vieni, ti<br><em>aspettiamo</em></h2>
             <div class="contact-grid anim">
-                <div class="contact-block">
+                <div class="contact-block tilt-card">
+                    <span class="contact-emoji">&#128222;</span>
                     <h4>Telefono</h4>
                     <p><a href="tel:+393454528790">+39 345 452 8790</a></p>
                     <span class="contact-note">Chiamate &amp; WhatsApp</span>
                 </div>
-                <div class="contact-block">
+                <div class="contact-block tilt-card">
+                    <span class="contact-emoji">&#128205;</span>
                     <h4>Indirizzo</h4>
                     <p>Via XXV Aprile, 15</p>
                     <span class="contact-note">20025 Legnano (MI)</span>
                 </div>
-                <div class="contact-block">
+                <div class="contact-block tilt-card">
+                    <span class="contact-emoji">&#128336;</span>
                     <h4>Orari</h4>
-                    <p>Mar — Dom: 18:00 / 00:00</p>
-                    <span class="contact-note">Lunedì chiuso</span>
+                    <p>Mar &mdash; Dom: 18:00 / 00:00</p>
+                    <span class="contact-note">Luned&igrave; chiuso (anche noi riposiamo!)</span>
                 </div>
             </div>
             <div class="contact-map anim">
                 <div class="map-placeholder">
                     <p>La Bulle &mdash; Via XXV Aprile, 15 &mdash; Legnano (MI)</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Via+XXV+Aprile+15+20025+Legnano+MI" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Apri in Google Maps</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Via+XXV+Aprile+15+20025+Legnano+MI" target="_blank" rel="noopener" class="btn btn--outline btn--sm btn--fun">
+                        <span class="btn-text">Apri in Google Maps</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -323,6 +420,7 @@
                 <div class="footer-brand">
                     <img src="img/Logo_Labulle_Legnano@2x.png" alt="La Bulle" class="footer-logo-img">
                     <p>Bar &amp; Enoteca &middot; Legnano</p>
+                    <p class="footer-tagline">Dove ogni bolla racconta una storia.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigazione</h4>
@@ -351,8 +449,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 La Bulle — Tutti i diritti riservati.</p>
-                <p>P.IVA 00000000000 &middot; Bevi responsabilmente</p>
+                <p>&copy; 2025 La Bulle &mdash; Tutti i diritti riservati.</p>
+                <p>P.IVA 00000000000 &middot; Bevi responsabilmente (ma divertiti irresponsabilmente)</p>
             </div>
         </div>
     </footer>
