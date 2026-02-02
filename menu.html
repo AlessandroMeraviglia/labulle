@@ -39,7 +39,24 @@
         <div class="container">
             <p class="hero-tag anim">La Bulle &mdash; Wine Bar &amp; Cucina</p>
             <h1 class="display-heading anim">Il <em>Menu</em></h1>
-            <p class="menu-page-sub anim">Roba seria, travestita da aperitivo.</p>
+
+            <!-- Main Tabs: Food / Drink -->
+            <div class="menu-main-tabs anim">
+                <button class="menu-main-tab active" data-menu="food">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    Menu Food
+                </button>
+                <button class="menu-main-tab" data-menu="drink">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8"/><path d="M12 15v6"/><path d="M17.5 3H6.5l1 8a5.5 5.5 0 0 0 9 0l1-8z"/></svg>
+                    Menu Drink
+                </button>
+            </div>
+
+            <!-- Language Toggle -->
+            <div class="lang-toggle anim">
+                <button class="lang-btn active" data-lang="it">IT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
         </div>
     </section>
 
@@ -47,18 +64,7 @@
     <div class="menu-filters-wrap">
         <div class="container">
             <div class="menu-filters" id="menuFilters">
-                <button class="filter-btn active" data-filter="all">Tutto</button>
-                <button class="filter-btn" data-filter="cucina">Cucina</button>
-                <button class="filter-btn" data-filter="bruschette">Le Bruschette</button>
-                <button class="filter-btn" data-filter="sfizi">Gli Sfizi</button>
-                <button class="filter-btn" data-filter="taglieri">Taglieri</button>
-                <button class="filter-btn" data-filter="ostriche">Ostriche</button>
-                <button class="filter-btn" data-filter="piade">Le Piade</button>
-                <button class="filter-btn" data-filter="dolci">Dolci</button>
-                <button class="filter-btn" data-filter="vini">Vini</button>
-                <button class="filter-btn" data-filter="cocktail">Cocktail</button>
-                <button class="filter-btn" data-filter="analcolici">Analcolici</button>
-                <button class="filter-btn" data-filter="birre">Birre</button>
+                <!-- Populated dynamically by JS -->
             </div>
         </div>
     </div>
@@ -66,275 +72,17 @@
     <!-- Menu Content -->
     <section class="section menu-page-content">
         <div class="container">
-
-            <!-- Cucina -->
-            <div class="menu-section" data-category="cucina">
-                <h2 class="menu-cat anim">Cucina</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Polpette al sugo</span>
-                            <span class="menu-price">&euro;10</span>
-                        </div>
-                        <p class="menu-desc">Polpette di manzo cotte lentamente nel sugo di pomodoro. Come quelle della nonna, ma meglio.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Uovo cremoso</span>
-                            <span class="menu-price">&euro;9</span>
-                        </div>
-                        <p class="menu-desc">Uovo cotto a bassa temperatura, fonduta di parmigiano e tartufo nero.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Le Bruschette -->
-            <div class="menu-section" data-category="bruschette">
-                <h2 class="menu-cat anim">Le Bruschette</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Bruschetta Classica</span>
-                            <span class="menu-price">&euro;6</span>
-                        </div>
-                        <p class="menu-desc">Pomodorini freschi, basilico, olio EVO e aglio sfregato. Semplice, perfetta.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Bruschetta Burrata</span>
-                            <span class="menu-price">&euro;9</span>
-                        </div>
-                        <p class="menu-desc">Burrata pugliese, pomodorini confit e basilico fresco.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Bruschetta Nduja</span>
-                            <span class="menu-price">&euro;8</span>
-                        </div>
-                        <p class="menu-desc">Nduja calabrese, stracciatella e miele di castagno.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gli Sfizi -->
-            <div class="menu-section" data-category="sfizi">
-                <h2 class="menu-cat anim">Gli Sfizi</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Olive Ascolane</span>
-                            <span class="menu-price">&euro;7</span>
-                        </div>
-                        <p class="menu-desc">Ripiene e fritte con salsa all'aglio nero. Avvertenza: creano dipendenza.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Tartare di Fassona</span>
-                            <span class="menu-price">&euro;15</span>
-                        </div>
-                        <p class="menu-desc">Battuta al coltello, tuorlo marinato, capperi e crostini.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Crocchette di patate</span>
-                            <span class="menu-price">&euro;7</span>
-                        </div>
-                        <p class="menu-desc">Croccanti fuori, cremose dentro, con cuore filante di provola affumicata.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Taglieri -->
-            <div class="menu-section" data-category="taglieri">
-                <h2 class="menu-cat anim">Taglieri</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Tagliere La Bulle</span>
-                            <span class="menu-price">&euro;24</span>
-                        </div>
-                        <p class="menu-desc">5 formaggi + 4 salumi + miele + confetture + grissini artigianali. Praticamente, la felicit&agrave;.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Tagliere Formaggi</span>
-                            <span class="menu-price">&euro;18</span>
-                        </div>
-                        <p class="menu-desc">5 formaggi selezionati, miele di acacia, noci e mostarda.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Tagliere Salumi</span>
-                            <span class="menu-price">&euro;16</span>
-                        </div>
-                        <p class="menu-desc">Crudo 24 mesi, bresaola, coppa, salame e lardo.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ostriche -->
-            <div class="menu-section" data-category="ostriche">
-                <h2 class="menu-cat anim">Ostriche</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Ostriche Fine de Claire</span>
-                            <span class="menu-price">&euro;4 / pz</span>
-                        </div>
-                        <p class="menu-desc">Servite con limone fresco e pane di segale.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Plateau 6 pezzi</span>
-                            <span class="menu-price">&euro;22</span>
-                        </div>
-                        <p class="menu-desc">Selezione di ostriche con salsa mignonette e limone.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Le Piade -->
-            <div class="menu-section" data-category="piade">
-                <h2 class="menu-cat anim">Le Piade</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Piada Crudo e Squacquerone</span>
-                            <span class="menu-price">&euro;9</span>
-                        </div>
-                        <p class="menu-desc">Crudo di Parma, squacquerone DOP e rucola.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Piada Mortadella</span>
-                            <span class="menu-price">&euro;8</span>
-                        </div>
-                        <p class="menu-desc">Mortadella Bologna IGP, stracciatella e pistacchi.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dolci -->
-            <div class="menu-section" data-category="dolci">
-                <h2 class="menu-cat anim">Dolci</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Tiramis&ugrave; della casa</span>
-                            <span class="menu-price">&euro;7</span>
-                        </div>
-                        <p class="menu-desc">La nostra ricetta classica, con mascarpone fresco e caff&egrave; espresso.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Panna cotta</span>
-                            <span class="menu-price">&euro;6</span>
-                        </div>
-                        <p class="menu-desc">Con coulis di frutti di bosco e crumble di biscotto.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vini -->
-            <div class="menu-section" data-category="vini">
-                <h2 class="menu-cat anim">Vini</h2>
-                <div class="menu-note anim">
-                    <p>Per i vini, fidatevi di noi. La nostra selezione cambia ogni settimana e il nostro staff &egrave; pronto a guidarvi nel calice perfetto per voi.</p>
-                </div>
-            </div>
-
-            <!-- Cocktail -->
-            <div class="menu-section" data-category="cocktail">
-                <h2 class="menu-cat anim">Cocktail</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Negroni</span>
-                            <span class="menu-price">&euro;10</span>
-                        </div>
-                        <p class="menu-desc">Gin, Campari, Vermouth rosso. Il classico che non tradisce mai.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Spritz</span>
-                            <span class="menu-price">&euro;8</span>
-                        </div>
-                        <p class="menu-desc">Prosecco, Aperol, soda. L'aperitivo per eccellenza.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Old Fashioned</span>
-                            <span class="menu-price">&euro;12</span>
-                        </div>
-                        <p class="menu-desc">Bourbon, zucchero, Angostura, scorza d'arancia.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Gin Tonic Premium</span>
-                            <span class="menu-price">&euro;11</span>
-                        </div>
-                        <p class="menu-desc">Gin selezionato, tonica premium e botaniche fresche.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cocktail Analcolici -->
-            <div class="menu-section" data-category="analcolici">
-                <h2 class="menu-cat anim">Cocktail Analcolici</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Virgin Mojito</span>
-                            <span class="menu-price">&euro;7</span>
-                        </div>
-                        <p class="menu-desc">Lime, menta fresca, zucchero di canna e soda.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Fruit Spritz</span>
-                            <span class="menu-price">&euro;7</span>
-                        </div>
-                        <p class="menu-desc">Soda, succo di frutto della passione, sciroppo di fiori di sambuco.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Ginger Mule</span>
-                            <span class="menu-price">&euro;7</span>
-                        </div>
-                        <p class="menu-desc">Ginger beer, lime e menta. Fresco e dissetante.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Birre -->
-            <div class="menu-section" data-category="birre">
-                <h2 class="menu-cat anim">Birre</h2>
-                <div class="menu-grid">
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Birra alla spina</span>
-                            <span class="menu-price">&euro;5</span>
-                        </div>
-                        <p class="menu-desc">Selezione rotante di birre artigianali italiane. Chiedi al bancone.</p>
-                    </div>
-                    <div class="menu-item anim">
-                        <div class="menu-item-top">
-                            <span class="menu-name">Birra artigianale bottiglia</span>
-                            <span class="menu-price">&euro;6</span>
-                        </div>
-                        <p class="menu-desc">IPA, Lager, Weiss &mdash; selezione di birrifici locali e nazionali.</p>
-                    </div>
-                </div>
+            <div id="menuContent">
+                <!-- Populated dynamically by JS -->
             </div>
 
             <!-- PDF Download -->
-            <div class="menu-cta anim">
-                <a href="#" class="btn btn--outline btn--icon">
+            <div class="menu-cta anim" id="menuPdfCta" style="display:none;">
+                <a href="#" id="menuPdfLink" class="btn btn--outline btn--icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Scarica il Menu PDF
+                    <span id="menuPdfText">Scarica il Menu PDF</span>
                 </a>
             </div>
-
         </div>
     </section>
 

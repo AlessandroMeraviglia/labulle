@@ -16,5 +16,7 @@ dist/
 
 # Uploads (user-generated content)
 uploads/events/*
+uploads/menu/*
 !uploads/events/.gitkeep
+!uploads/menu/.gitkeep
 !uploads/.htaccess

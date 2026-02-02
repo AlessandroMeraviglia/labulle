@@ -10,7 +10,34 @@ if (!isLoggedIn()) {
 }
 refreshSession();
 
+// --- Constants ---
+define('MENU_FILE', DATA_DIR . 'menu.json');
+define('UPLOADS_MENU_DIR', __DIR__ . '/../uploads/menu/');
+
 // --- Helpers ---
+
+function loadMenu(): array {
+    if (!file_exists(MENU_FILE)) return [];
+    $json = file_get_contents(MENU_FILE);
+    return json_decode($json, true) ?: [];
+}
+
+function saveMenu(array $menu): bool {
+    if (!is_dir(DATA_DIR)) mkdir(DATA_DIR, 0755, true);
+    $json = json_encode($menu, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    return file_put_contents(MENU_FILE, $json) !== false;
+}
+
+function handlePdfUpload(array $file): string {
+    if ($file['error'] !== UPLOAD_ERR_OK) throw new Exception('Errore upload PDF');
+    if ($file['size'] > 10 * 1024 * 1024) throw new Exception('PDF troppo grande (max 10MB)');
+    if ($file['type'] !== 'application/pdf') throw new Exception('Il file deve essere un PDF');
+    if (!is_dir(UPLOADS_MENU_DIR)) mkdir(UPLOADS_MENU_DIR, 0755, true);
+    $filename = 'menu_' . bin2hex(random_bytes(6)) . '.pdf';
+    $dest = UPLOADS_MENU_DIR . $filename;
+    if (!move_uploaded_file($file['tmp_name'], $dest)) throw new Exception('Errore salvataggio PDF');
+    return 'uploads/menu/' . $filename;
+}
 
 function loadEvents(): array {
     if (!file_exists(EVENTS_FILE)) {
@@ -221,6 +248,133 @@ try {
 
             saveEvents($reordered);
             echo json_encode(['success' => true]);
+            exit;
+
+        // =====================
+        // MENU ENDPOINTS
+        // =====================
+
+        // GET: load menu
+        case 'menu_load':
+            if ($method !== 'GET') break;
+            echo json_encode(loadMenu());
+            exit;
+
+        // POST: save full menu JSON
+        case 'menu_save':
+            if ($method !== 'POST') break;
+            if (!verifyCsrfToken($_POST['csrf_token'] ?? '')) {
+                throw new Exception('Token CSRF non valido');
+            }
+            $menuJson = $_POST['menu_data'] ?? '';
+            $menu = json_decode($menuJson, true);
+            if (!is_array($menu)) throw new Exception('Dati menu non validi');
+            saveMenu($menu);
+            echo json_encode(['success' => true]);
+            exit;
+
+        // POST: add item to a category
+        case 'menu_add_item':
+            if ($method !== 'POST') break;
+            if (!verifyCsrfToken($_POST['csrf_token'] ?? '')) {
+                throw new Exception('Token CSRF non valido');
+            }
+            $menu = loadMenu();
+            $section = $_POST['section'] ?? ''; // food or drink
+            $catId = $_POST['category_id'] ?? '';
+            if (!isset($menu[$section])) throw new Exception('Sezione non valida');
+            $found = false;
+            foreach ($menu[$section]['categories'] as &$cat) {
+                if ($cat['id'] === $catId) {
+                    $cat['items'][] = [
+                        'name'    => trim($_POST['name'] ?? ''),
+                        'name_en' => trim($_POST['name_en'] ?? ''),
+                        'price'   => trim($_POST['price'] ?? ''),
+                        'desc'    => trim($_POST['desc'] ?? ''),
+                        'desc_en' => trim($_POST['desc_en'] ?? ''),
+                    ];
+                    $found = true;
+                    break;
+                }
+            }
+            unset($cat);
+            if (!$found) throw new Exception('Categoria non trovata');
+            saveMenu($menu);
+            echo json_encode(['success' => true]);
+            exit;
+
+        // POST: update item
+        case 'menu_update_item':
+            if ($method !== 'POST') break;
+            if (!verifyCsrfToken($_POST['csrf_token'] ?? '')) {
+                throw new Exception('Token CSRF non valido');
+            }
+            $menu = loadMenu();
+            $section = $_POST['section'] ?? '';
+            $catId = $_POST['category_id'] ?? '';
+            $itemIdx = (int)($_POST['item_index'] ?? -1);
+            if (!isset($menu[$section])) throw new Exception('Sezione non valida');
+            foreach ($menu[$section]['categories'] as &$cat) {
+                if ($cat['id'] === $catId && isset($cat['items'][$itemIdx])) {
+                    $cat['items'][$itemIdx] = [
+                        'name'    => trim($_POST['name'] ?? ''),
+                        'name_en' => trim($_POST['name_en'] ?? ''),
+                        'price'   => trim($_POST['price'] ?? ''),
+                        'desc'    => trim($_POST['desc'] ?? ''),
+                        'desc_en' => trim($_POST['desc_en'] ?? ''),
+                    ];
+                    break;
+                }
+            }
+            unset($cat);
+            saveMenu($menu);
+            echo json_encode(['success' => true]);
+            exit;
+
+        // POST: delete item
+        case 'menu_delete_item':
+            if ($method !== 'POST') break;
+            if (!verifyCsrfToken($_POST['csrf_token'] ?? '')) {
+                throw new Exception('Token CSRF non valido');
+            }
+            $menu = loadMenu();
+            $section = $_POST['section'] ?? '';
+            $catId = $_POST['category_id'] ?? '';
+            $itemIdx = (int)($_POST['item_index'] ?? -1);
+            if (!isset($menu[$section])) throw new Exception('Sezione non valida');
+            foreach ($menu[$section]['categories'] as &$cat) {
+                if ($cat['id'] === $catId && isset($cat['items'][$itemIdx])) {
+                    array_splice($cat['items'], $itemIdx, 1);
+                    break;
+                }
+            }
+            unset($cat);
+            saveMenu($menu);
+            echo json_encode(['success' => true]);
+            exit;
+
+        // POST: upload menu PDF
+        case 'menu_upload_pdf':
+            if ($method !== 'POST') break;
+            if (!verifyCsrfToken($_POST['csrf_token'] ?? '')) {
+                throw new Exception('Token CSRF non valido');
+            }
+            $section = $_POST['section'] ?? ''; // food or drink
+            $lang = $_POST['lang'] ?? 'it';     // it or en
+            $menu = loadMenu();
+            if (!isset($menu[$section])) throw new Exception('Sezione non valida');
+            if (empty($_FILES['pdf']) || $_FILES['pdf']['error'] !== UPLOAD_ERR_OK) {
+                throw new Exception('Nessun file PDF caricato');
+            }
+            $pdfKey = $lang === 'en' ? 'pdf_en' : 'pdf';
+            // Delete old PDF
+            $oldPdf = $menu[$section][$pdfKey] ?? null;
+            if ($oldPdf && file_exists(__DIR__ . '/../' . $oldPdf)) {
+                unlink(__DIR__ . '/../' . $oldPdf);
+            }
+            $menu[$section][$pdfKey] = handlePdfUpload($_FILES['pdf']);
+            saveMenu($menu);
+            echo json_encode(['success' => true, 'path' => $menu[$section][$pdfKey]]);
             exit;
 
         default:

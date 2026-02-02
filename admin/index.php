@@ -278,6 +278,130 @@ $loggedIn = isLoggedIn();
         }
         .empty-state p { font-size: 0.9rem; margin-bottom: 20px; }
 
+        /* --- ADMIN TABS --- */
+        .admin-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .admin-tab {
+            padding: 12px 24px;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white-dim);
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+        .admin-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; left: 0; right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.2s;
+        }
+        .admin-tab:hover { color: var(--white); }
+        .admin-tab.active { color: var(--accent); }
+        .admin-tab.active::after { transform: scaleX(1); }
+        .admin-panel { display: none; }
+        .admin-panel.active { display: block; }
+
+        /* --- MENU ADMIN --- */
+        .menu-admin-bar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .menu-admin-section-tabs {
+            display: flex;
+            gap: 4px;
+        }
+        .menu-section-tab {
+            padding: 8px 20px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--white-dim);
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .menu-section-tab.active { color: var(--black); background: var(--accent); border-color: var(--accent); }
+
+        .menu-cat-block {
+            background: var(--black);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .menu-cat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .menu-cat-header:hover { background: rgba(230,204,171,0.03); }
+        .menu-cat-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .menu-cat-header .cat-novita {
+            font-size: 0.55rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        .menu-cat-items {
+            border-top: 1px solid var(--border);
+            padding: 12px 20px;
+        }
+        .menu-admin-item {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            gap: 12px;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(230,204,171,0.06);
+        }
+        .menu-admin-item:last-child { border-bottom: none; }
+        .menu-admin-item-name { font-size: 0.85rem; color: var(--white); }
+        .menu-admin-item-price { font-size: 0.75rem; color: var(--accent); }
+
+        .pdf-upload-row {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            padding: 16px 20px;
+            background: var(--black);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+        }
+        .pdf-upload-row label { flex: 1; font-size: 0.75rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--white-muted); }
+        .pdf-status { font-size: 0.75rem; color: var(--success); }
+        .pdf-status--none { color: var(--white-dim); }
+
         /* --- MODAL --- */
         .modal-overlay {
             display: none;
@@ -386,14 +510,70 @@ $loggedIn = isLoggedIn();
 </header>
 
 <div class="container">
-    <div class="section-title">
-        <span>Eventi</span>
-        <button class="btn btn--primary btn--sm" onclick="openModal()">+ Nuovo Evento</button>
+    <!-- Admin Tabs -->
+    <div class="admin-tabs">
+        <button class="admin-tab active" data-panel="events">Eventi</button>
+        <button class="admin-tab" data-panel="menu">Menu</button>
     </div>
 
-    <div class="event-list" id="eventList">
-        <div class="empty-state" id="emptyState">
-            <p>Nessun evento presente.<br>Crea il primo evento.</p>
+    <!-- Events Panel -->
+    <div class="admin-panel active" id="panel-events">
+        <div class="section-title">
+            <span>Eventi</span>
+            <button class="btn btn--primary btn--sm" onclick="openModal()">+ Nuovo Evento</button>
+        </div>
+
+        <div class="event-list" id="eventList">
+            <div class="empty-state" id="emptyState">
+                <p>Nessun evento presente.<br>Crea il primo evento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Panel -->
+    <div class="admin-panel" id="panel-menu">
+        <div class="section-title">
+            <span>Gestione Menu</span>
+        </div>
+
+        <!-- PDF Uploads -->
+        <h4 style="color:var(--white-muted); font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Upload PDF</h4>
+        <div class="pdf-upload-row">
+            <label>Menu Food (IT)</label>
+            <span class="pdf-status pdf-status--none" id="pdfFoodIt">Nessun PDF</span>
+            <input type="file" accept="application/pdf" id="pdfFoodItFile" style="display:none">
+            <button class="btn btn--outline btn--sm" onclick="document.getElementById('pdfFoodItFile').click()">Carica</button>
+        </div>
+        <div class="pdf-upload-row">
+            <label>Menu Food (EN)</label>
+            <span class="pdf-status pdf-status--none" id="pdfFoodEn">Nessun PDF</span>
+            <input type="file" accept="application/pdf" id="pdfFoodEnFile" style="display:none">
+            <button class="btn btn--outline btn--sm" onclick="document.getElementById('pdfFoodEnFile').click()">Carica</button>
+        </div>
+        <div class="pdf-upload-row">
+            <label>Menu Drink (IT)</label>
+            <span class="pdf-status pdf-status--none" id="pdfDrinkIt">Nessun PDF</span>
+            <input type="file" accept="application/pdf" id="pdfDrinkItFile" style="display:none">
+            <button class="btn btn--outline btn--sm" onclick="document.getElementById('pdfDrinkItFile').click()">Carica</button>
+        </div>
+        <div class="pdf-upload-row">
+            <label>Menu Drink (EN)</label>
+            <span class="pdf-status pdf-status--none" id="pdfDrinkEn">Nessun PDF</span>
+            <input type="file" accept="application/pdf" id="pdfDrinkEnFile" style="display:none">
+            <button class="btn btn--outline btn--sm" onclick="document.getElementById('pdfDrinkEnFile').click()">Carica</button>
+        </div>
+
+        <!-- Menu Sections -->
+        <div style="margin-top:32px;">
+            <div class="menu-admin-bar">
+                <div class="menu-admin-section-tabs">
+                    <button class="menu-section-tab active" data-section="food">Food</button>
+                    <button class="menu-section-tab" data-section="drink">Drink</button>
+                </div>
+            </div>
+            <div id="menuAdminContent">
+                <!-- Populated by JS -->
+            </div>
         </div>
     </div>
 </div>
@@ -678,6 +858,204 @@ document.getElementById('modalOverlay').addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
+
+// ==========================
+// ADMIN TABS
+// ==========================
+document.querySelectorAll('.admin-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+        if (tab.dataset.panel === 'menu' && !menuDataLoaded) loadMenuAdmin();
+    });
+});
+
+// ==========================
+// MENU ADMIN
+// ==========================
+let menuAdminData = null;
+let menuDataLoaded = false;
+let menuAdminSection = 'food';
+
+async function loadMenuAdmin() {
+    try {
+        const res = await fetch(API + '?action=menu_load');
+        menuAdminData = await res.json();
+        menuDataLoaded = true;
+        renderMenuAdmin();
+        updatePdfStatus();
+    } catch(e) {
+        showToast('Errore caricamento menu', 'error');
+    }
+}
+
+function updatePdfStatus() {
+    if (!menuAdminData) return;
+    const pairs = [
+        ['pdfFoodIt', 'food', 'pdf'],
+        ['pdfFoodEn', 'food', 'pdf_en'],
+        ['pdfDrinkIt', 'drink', 'pdf'],
+        ['pdfDrinkEn', 'drink', 'pdf_en'],
+    ];
+    pairs.forEach(([elId, section, key]) => {
+        const el = document.getElementById(elId);
+        const val = menuAdminData[section]?.[key];
+        if (val) {
+            el.textContent = 'Caricato';
+            el.className = 'pdf-status';
+        } else {
+            el.textContent = 'Nessun PDF';
+            el.className = 'pdf-status pdf-status--none';
+        }
+    });
+}
+
+function renderMenuAdmin() {
+    if (!menuAdminData) return;
+    const section = menuAdminData[menuAdminSection];
+    if (!section || !section.categories) return;
+    const container = document.getElementById('menuAdminContent');
+
+    container.innerHTML = section.categories.map(cat => {
+        const novitaBadge = cat.novita ? '<span class="cat-novita">Novit\u00e0</span>' : '';
+        const itemsHtml = (cat.items || []).map((item, idx) =>
+            '<div class="menu-admin-item">' +
+                '<span class="menu-admin-item-name">' + esc(item.name) + '</span>' +
+                '<span class="menu-admin-item-price">' + esc(item.price) + '</span>' +
+                '<button class="btn btn--outline btn--sm" onclick="editMenuItem(\'' + cat.id + '\',' + idx + ')">Modifica</button>' +
+                '<button class="btn btn--danger btn--sm" onclick="deleteMenuItem(\'' + cat.id + '\',' + idx + ')">Elimina</button>' +
+            '</div>'
+        ).join('');
+
+        return '<div class="menu-cat-block">' +
+            '<div class="menu-cat-header" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\'">' +
+                '<h3>' + esc(cat.name) + novitaBadge + ' <span style="color:var(--white-dim);font-size:0.75rem;">(' + (cat.items?.length || 0) + ')</span></h3>' +
+                '<button class="btn btn--primary btn--sm" onclick="event.stopPropagation();addMenuItem(\'' + cat.id + '\')">+ Piatto</button>' +
+            '</div>' +
+            '<div class="menu-cat-items">' +
+                (itemsHtml || '<p style="color:var(--white-dim);font-size:0.8rem;padding:8px 0;">Nessun piatto. Aggiungi il primo.</p>') +
+            '</div>' +
+        '</div>';
+    }).join('');
+}
+
+// Menu section tabs
+document.querySelectorAll('.menu-section-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.menu-section-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        menuAdminSection = tab.dataset.section;
+        renderMenuAdmin();
+    });
+});
+
+// PDF uploads
+function setupPdfUpload(inputId, section, lang) {
+    document.getElementById(inputId).addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const fd = new FormData();
+        fd.append('csrf_token', CSRF);
+        fd.append('section', section);
+        fd.append('lang', lang);
+        fd.append('pdf', file);
+        try {
+            const res = await fetch(API + '?action=menu_upload_pdf', { method: 'POST', body: fd });
+            const data = await res.json();
+            if (data.success) {
+                showToast('PDF caricato');
+                loadMenuAdmin();
+            } else {
+                showToast(data.error || 'Errore', 'error');
+            }
+        } catch(e) {
+            showToast('Errore rete', 'error');
+        }
+    });
+}
+setupPdfUpload('pdfFoodItFile', 'food', 'it');
+setupPdfUpload('pdfFoodEnFile', 'food', 'en');
+setupPdfUpload('pdfDrinkItFile', 'drink', 'it');
+setupPdfUpload('pdfDrinkEnFile', 'drink', 'en');
+
+// Add menu item
+function addMenuItem(catId) {
+    const name = prompt('Nome piatto (IT):');
+    if (!name) return;
+    const nameEn = prompt('Nome piatto (EN):', '') || '';
+    const price = prompt('Prezzo (es. €10):', '') || '';
+    const desc = prompt('Descrizione (IT):', '') || '';
+    const descEn = prompt('Descrizione (EN):', '') || '';
+
+    const fd = new FormData();
+    fd.append('csrf_token', CSRF);
+    fd.append('section', menuAdminSection);
+    fd.append('category_id', catId);
+    fd.append('name', name);
+    fd.append('name_en', nameEn);
+    fd.append('price', price);
+    fd.append('desc', desc);
+    fd.append('desc_en', descEn);
+
+    fetch(API + '?action=menu_add_item', { method: 'POST', body: fd })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) { showToast('Piatto aggiunto'); loadMenuAdmin(); }
+            else showToast(data.error, 'error');
+        }).catch(() => showToast('Errore', 'error'));
+}
+
+// Edit menu item
+function editMenuItem(catId, idx) {
+    const section = menuAdminData[menuAdminSection];
+    const cat = section.categories.find(c => c.id === catId);
+    if (!cat || !cat.items[idx]) return;
+    const item = cat.items[idx];
+
+    const name = prompt('Nome piatto (IT):', item.name);
+    if (name === null) return;
+    const nameEn = prompt('Nome piatto (EN):', item.name_en || '');
+    const price = prompt('Prezzo:', item.price || '');
+    const desc = prompt('Descrizione (IT):', item.desc || '');
+    const descEn = prompt('Descrizione (EN):', item.desc_en || '');
+
+    const fd = new FormData();
+    fd.append('csrf_token', CSRF);
+    fd.append('section', menuAdminSection);
+    fd.append('category_id', catId);
+    fd.append('item_index', idx);
+    fd.append('name', name);
+    fd.append('name_en', nameEn);
+    fd.append('price', price);
+    fd.append('desc', desc);
+    fd.append('desc_en', descEn);
+
+    fetch(API + '?action=menu_update_item', { method: 'POST', body: fd })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) { showToast('Piatto aggiornato'); loadMenuAdmin(); }
+            else showToast(data.error, 'error');
+        }).catch(() => showToast('Errore', 'error'));
+}
+
+// Delete menu item
+function deleteMenuItem(catId, idx) {
+    if (!confirm('Eliminare questo piatto?')) return;
+    const fd = new FormData();
+    fd.append('csrf_token', CSRF);
+    fd.append('section', menuAdminSection);
+    fd.append('category_id', catId);
+    fd.append('item_index', idx);
+
+    fetch(API + '?action=menu_delete_item', { method: 'POST', body: fd })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) { showToast('Piatto eliminato'); loadMenuAdmin(); }
+            else showToast(data.error, 'error');
+        }).catch(() => showToast('Errore', 'error'));
+}
 
 // --- Init ---
 loadEvents();

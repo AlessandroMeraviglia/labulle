@@ -1,0 +1,281 @@
+{
+    "food": {
+        "pdf": null,
+        "pdf_en": null,
+        "categories": [
+            {
+                "id": "cucina",
+                "name": "La Cucina",
+                "name_en": "Kitchen",
+                "novita": true,
+                "items": [
+                    {
+                        "name": "Polpette al sugo",
+                        "name_en": "Meatballs in tomato sauce",
+                        "price": "€10",
+                        "desc": "Polpette di manzo cotte lentamente nel sugo di pomodoro. Come quelle della nonna, ma meglio.",
+                        "desc_en": "Beef meatballs slow-cooked in tomato sauce. Like grandma's, but better."
+                    },
+                    {
+                        "name": "Uovo cremoso",
+                        "name_en": "Creamy egg",
+                        "price": "€9",
+                        "desc": "Uovo cotto a bassa temperatura, fonduta di parmigiano e tartufo nero.",
+                        "desc_en": "Low-temperature cooked egg, parmesan fondue and black truffle."
+                    }
+                ]
+            },
+            {
+                "id": "dolci",
+                "name": "Dolci",
+                "name_en": "Desserts",
+                "novita": true,
+                "items": [
+                    {
+                        "name": "Tiramisù della casa",
+                        "name_en": "Homemade tiramisù",
+                        "price": "€7",
+                        "desc": "La nostra ricetta classica, con mascarpone fresco e caffè espresso.",
+                        "desc_en": "Our classic recipe with fresh mascarpone and espresso coffee."
+                    },
+                    {
+                        "name": "Panna cotta",
+                        "name_en": "Panna cotta",
+                        "price": "€6",
+                        "desc": "Con coulis di frutti di bosco e crumble di biscotto.",
+                        "desc_en": "With mixed berry coulis and biscuit crumble."
+                    }
+                ]
+            },
+            {
+                "id": "bruschette",
+                "name": "Le Bruschette",
+                "name_en": "Bruschette",
+                "novita": false,
+                "items": [
+                    {
+                        "name": "Bruschetta Classica",
+                        "name_en": "Classic Bruschetta",
+                        "price": "€6",
+                        "desc": "Pomodorini freschi, basilico, olio EVO e aglio sfregato. Semplice, perfetta.",
+                        "desc_en": "Fresh cherry tomatoes, basil, EVO oil and rubbed garlic. Simple, perfect."
+                    },
+                    {
+                        "name": "Bruschetta Burrata",
+                        "name_en": "Burrata Bruschetta",
+                        "price": "€9",
+                        "desc": "Burrata pugliese, pomodorini confit e basilico fresco.",
+                        "desc_en": "Apulian burrata, confit cherry tomatoes and fresh basil."
+                    },
+                    {
+                        "name": "Bruschetta Nduja",
+                        "name_en": "Nduja Bruschetta",
+                        "price": "€8",
+                        "desc": "Nduja calabrese, stracciatella e miele di castagno.",
+                        "desc_en": "Calabrian nduja, stracciatella and chestnut honey."
+                    }
+                ]
+            },
+            {
+                "id": "sfizi",
+                "name": "Gli Sfizi",
+                "name_en": "Bites",
+                "novita": false,
+                "items": [
+                    {
+                        "name": "Olive Ascolane",
+                        "name_en": "Fried Stuffed Olives",
+                        "price": "€7",
+                        "desc": "Ripiene e fritte con salsa all'aglio nero. Avvertenza: creano dipendenza.",
+                        "desc_en": "Stuffed and fried with black garlic sauce. Warning: highly addictive."
+                    },
+                    {
+                        "name": "Tartare di Fassona",
+                        "name_en": "Fassona Beef Tartare",
+                        "price": "€15",
+                        "desc": "Battuta al coltello, tuorlo marinato, capperi e crostini.",
+                        "desc_en": "Hand-chopped, marinated yolk, capers and crostini."
+                    },
+                    {
+                        "name": "Crocchette di patate",
+                        "name_en": "Potato Croquettes",
+                        "price": "€7",
+                        "desc": "Croccanti fuori, cremose dentro, con cuore filante di provola affumicata.",
+                        "desc_en": "Crispy outside, creamy inside, with a melting smoked provola heart."
+                    }
+                ]
+            },
+            {
+                "id": "taglieri",
+                "name": "Taglieri",
+                "name_en": "Boards",
+                "novita": false,
+                "items": [
+                    {
+                        "name": "Tagliere La Bulle",
+                        "name_en": "La Bulle Board",
+                        "price": "€24",
+                        "desc": "5 formaggi + 4 salumi + miele + confetture + grissini artigianali. Praticamente, la felicità.",
+                        "desc_en": "5 cheeses + 4 cured meats + honey + jams + artisan breadsticks. Basically, happiness."
+                    },
+                    {
+                        "name": "Tagliere Formaggi",
+                        "name_en": "Cheese Board",
+                        "price": "€18",
+                        "desc": "5 formaggi selezionati, miele di acacia, noci e mostarda.",
+                        "desc_en": "5 selected cheeses, acacia honey, walnuts and mustard."
+                    },
+                    {
+                        "name": "Tagliere Salumi",
+                        "name_en": "Cured Meat Board",
+                        "price": "€16",
+                        "desc": "Crudo 24 mesi, bresaola, coppa, salame e lardo.",
+                        "desc_en": "24-month prosciutto, bresaola, coppa, salami and lardo."
+                    }
+                ]
+            },
+            {
+                "id": "ostriche",
+                "name": "Ostriche",
+                "name_en": "Oysters",
+                "novita": false,
+                "items": [
+                    {
+                        "name": "Ostriche Fine de Claire",
+                        "name_en": "Fine de Claire Oysters",
+                        "price": "€4 / pz",
+                        "desc": "Servite con limone fresco e pane di segale.",
+                        "desc_en": "Served with fresh lemon and rye bread."
+                    },
+                    {
+                        "name": "Plateau 6 pezzi",
+                        "name_en": "Plateau 6 pieces",
+                        "price": "€22",
+                        "desc": "Selezione di ostriche con salsa mignonette e limone.",
+                        "desc_en": "Oyster selection with mignonette sauce and lemon."
+                    }
+                ]
+            },
+            {
+                "id": "piade",
+                "name": "Le Piade",
+                "name_en": "Piadine",
+                "novita": false,
+                "items": [
+                    {
+                        "name": "Piada Crudo e Squacquerone",
+                        "name_en": "Prosciutto & Squacquerone Piada",
+                        "price": "€9",
+                        "desc": "Crudo di Parma, squacquerone DOP e rucola.",
+                        "desc_en": "Parma prosciutto, DOP squacquerone and rocket."
+                    },
+                    {
+                        "name": "Piada Mortadella",
+                        "name_en": "Mortadella Piada",
+                        "price": "€8",
+                        "desc": "Mortadella Bologna IGP, stracciatella e pistacchi.",
+                        "desc_en": "Bologna IGP mortadella, stracciatella and pistachios."
+                    }
+                ]
+            }
+        ]
+    },
+    "drink": {
+        "pdf": null,
+        "pdf_en": null,
+        "categories": [
+            {
+                "id": "vini",
+                "name": "Vini",
+                "name_en": "Wines",
+                "note": "Per i vini, fidatevi di noi. La nostra selezione cambia ogni settimana e il nostro staff è pronto a guidarvi nel calice perfetto per voi.",
+                "note_en": "Trust us with the wines. Our selection changes every week and our staff is ready to guide you to the perfect glass.",
+                "items": []
+            },
+            {
+                "id": "cocktail",
+                "name": "Cocktail",
+                "name_en": "Cocktails",
+                "items": [
+                    {
+                        "name": "Negroni",
+                        "name_en": "Negroni",
+                        "price": "€10",
+                        "desc": "Gin, Campari, Vermouth rosso. Il classico che non tradisce mai.",
+                        "desc_en": "Gin, Campari, red Vermouth. The classic that never fails."
+                    },
+                    {
+                        "name": "Spritz",
+                        "name_en": "Spritz",
+                        "price": "€8",
+                        "desc": "Prosecco, Aperol, soda. L'aperitivo per eccellenza.",
+                        "desc_en": "Prosecco, Aperol, soda. The ultimate aperitivo."
+                    },
+                    {
+                        "name": "Old Fashioned",
+                        "name_en": "Old Fashioned",
+                        "price": "€12",
+                        "desc": "Bourbon, zucchero, Angostura, scorza d'arancia.",
+                        "desc_en": "Bourbon, sugar, Angostura, orange peel."
+                    },
+                    {
+                        "name": "Gin Tonic Premium",
+                        "name_en": "Premium Gin & Tonic",
+                        "price": "€11",
+                        "desc": "Gin selezionato, tonica premium e botaniche fresche.",
+                        "desc_en": "Selected gin, premium tonic and fresh botanicals."
+                    }
+                ]
+            },
+            {
+                "id": "analcolici",
+                "name": "Cocktail Analcolici",
+                "name_en": "Non-Alcoholic Cocktails",
+                "items": [
+                    {
+                        "name": "Virgin Mojito",
+                        "name_en": "Virgin Mojito",
+                        "price": "€7",
+                        "desc": "Lime, menta fresca, zucchero di canna e soda.",
+                        "desc_en": "Lime, fresh mint, cane sugar and soda."
+                    },
+                    {
+                        "name": "Fruit Spritz",
+                        "name_en": "Fruit Spritz",
+                        "price": "€7",
+                        "desc": "Soda, succo di frutto della passione, sciroppo di fiori di sambuco.",
+                        "desc_en": "Soda, passion fruit juice, elderflower syrup."
+                    },
+                    {
+                        "name": "Ginger Mule",
+                        "name_en": "Ginger Mule",
+                        "price": "€7",
+                        "desc": "Ginger beer, lime e menta. Fresco e dissetante.",
+                        "desc_en": "Ginger beer, lime and mint. Fresh and refreshing."
+                    }
+                ]
+            },
+            {
+                "id": "birre",
+                "name": "Birre",
+                "name_en": "Beers",
+                "items": [
+                    {
+                        "name": "Birra alla spina",
+                        "name_en": "Draft beer",
+                        "price": "€5",
+                        "desc": "Selezione rotante di birre artigianali italiane. Chiedi al bancone.",
+                        "desc_en": "Rotating selection of Italian craft beers. Ask at the bar."
+                    },
+                    {
+                        "name": "Birra artigianale bottiglia",
+                        "name_en": "Craft beer bottle",
+                        "price": "€6",
+                        "desc": "IPA, Lager, Weiss — selezione di birrifici locali e nazionali.",
+                        "desc_en": "IPA, Lager, Weiss — selection from local and national breweries."
+                    }
+                ]
+            }
+        ]
+    }
+}

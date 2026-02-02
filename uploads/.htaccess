@@ -1,5 +1,5 @@
-# Only allow image files to be served from uploads
-<FilesMatch "\.(?!(jpg|jpeg|png|webp|gif)$)">
+# Only allow image and PDF files to be served from uploads
+<FilesMatch "\.(?!(jpg|jpeg|png|webp|gif|pdf)$)">
     Require all denied
 </FilesMatch>
 

@@ -152,25 +152,150 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // — Menu Category Filters (menu.html) —
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const menuSections = document.querySelectorAll('.menu-section');
-    if (filterBtns.length && menuSections.length) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.getAttribute('data-filter');
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                menuSections.forEach(sec => {
-                    if (filter === 'all' || sec.getAttribute('data-category') === filter) {
-                        sec.classList.remove('hidden');
-                        sec.querySelectorAll('.anim:not(.visible)').forEach(el => obs.observe(el));
-                    } else {
-                        sec.classList.add('hidden');
-                    }
+    // — Dynamic Menu (menu.html) —
+    const menuContent = document.getElementById('menuContent');
+    const menuFiltersEl = document.getElementById('menuFilters');
+    const menuMainTabs = document.querySelectorAll('.menu-main-tab');
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    if (menuContent && menuFiltersEl) {
+        let menuData = null;
+        let currentTab = 'food';
+        let currentLang = 'it';
+        let currentFilter = 'all';
+
+        function escMenu(str) {
+            if (!str) return '';
+            const d = document.createElement('span');
+            d.textContent = str;
+            return d.innerHTML;
+        }
+
+        function getField(item, field) {
+            if (currentLang === 'en' && item[field + '_en']) return item[field + '_en'];
+            return item[field] || '';
+        }
+
+        function buildFilters(categories) {
+            const hasNovita = categories.some(c => c.novita);
+            let html = '<button class="filter-btn active" data-filter="all">Tutto</button>';
+            if (hasNovita) {
+                html += '<button class="filter-btn filter-btn--novita" data-filter="novita">' + (currentLang === 'en' ? "What's New" : 'Novit\u00e0') + '</button>';
+            }
+            categories.forEach(cat => {
+                if (!cat.novita) {
+                    html += '<button class="filter-btn" data-filter="' + cat.id + '">' + escMenu(getField(cat, 'name')) + '</button>';
+                }
+            });
+            menuFiltersEl.innerHTML = html;
+            currentFilter = 'all';
+            wireFilters();
+        }
+
+        function wireFilters() {
+            menuFiltersEl.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentFilter = btn.getAttribute('data-filter');
+                    menuFiltersEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    applyFilter();
                 });
             });
+        }
+
+        function applyFilter() {
+            document.querySelectorAll('.menu-section').forEach(sec => {
+                const cat = sec.getAttribute('data-category');
+                const isNovita = sec.getAttribute('data-novita') === 'true';
+                let show = false;
+                if (currentFilter === 'all') show = true;
+                else if (currentFilter === 'novita') show = isNovita;
+                else show = (cat === currentFilter);
+                sec.classList.toggle('hidden', !show);
+                if (show) sec.querySelectorAll('.anim:not(.visible)').forEach(el => obs.observe(el));
+            });
+        }
+
+        function renderMenu() {
+            if (!menuData) return;
+            const section = menuData[currentTab];
+            if (!section) return;
+            const cats = section.categories;
+            buildFilters(cats);
+
+            let html = '';
+            cats.forEach(cat => {
+                const catName = getField(cat, 'name');
+                const note = getField(cat, 'note');
+                html += '<div class="menu-section" data-category="' + cat.id + '" data-novita="' + (cat.novita || false) + '">';
+                html += '<h2 class="menu-cat anim">' + escMenu(catName);
+                if (cat.novita) html += ' <span class="menu-novita-badge">' + (currentLang === 'en' ? 'New' : 'Novit\u00e0') + '</span>';
+                html += '</h2>';
+                if (note) {
+                    html += '<div class="menu-note anim"><p>' + escMenu(note) + '</p></div>';
+                }
+                if (cat.items && cat.items.length) {
+                    html += '<div class="menu-grid">';
+                    cat.items.forEach(item => {
+                        html += '<div class="menu-item anim">' +
+                            '<div class="menu-item-top">' +
+                                '<span class="menu-name">' + escMenu(getField(item, 'name')) + '</span>' +
+                                '<span class="menu-price">' + escMenu(item.price) + '</span>' +
+                            '</div>' +
+                            '<p class="menu-desc">' + escMenu(getField(item, 'desc')) + '</p>' +
+                        '</div>';
+                    });
+                    html += '</div>';
+                }
+                html += '</div>';
+            });
+            menuContent.innerHTML = html;
+            menuContent.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+            // PDF link
+            const pdfCta = document.getElementById('menuPdfCta');
+            const pdfLink = document.getElementById('menuPdfLink');
+            const pdfText = document.getElementById('menuPdfText');
+            const pdfKey = currentLang === 'en' ? 'pdf_en' : 'pdf';
+            if (section[pdfKey]) {
+                pdfCta.style.display = '';
+                pdfLink.href = section[pdfKey];
+                pdfText.textContent = currentLang === 'en' ? 'Download Menu PDF' : 'Scarica il Menu PDF';
+            } else {
+                pdfCta.style.display = 'none';
+            }
+        }
+
+        // Tab switching
+        menuMainTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                currentTab = tab.getAttribute('data-menu');
+                menuMainTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderMenu();
+            });
         });
+
+        // Language switching
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentLang = btn.getAttribute('data-lang');
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderMenu();
+            });
+        });
+
+        // Load menu data
+        fetch('data/menu.json')
+            .then(r => r.json())
+            .then(data => {
+                menuData = data;
+                renderMenu();
+            })
+            .catch(() => {
+                menuContent.innerHTML = '<p style="color:var(--white-dim);text-align:center;">Errore nel caricamento del menu.</p>';
+            });
     }
 
     // — MONTHS MAP —
