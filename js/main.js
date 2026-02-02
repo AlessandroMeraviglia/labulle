@@ -173,21 +173,92 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // — Event Accordion —
-    document.querySelectorAll('.event-accordion').forEach(accordion => {
-        const header = accordion.querySelector('.event-header');
-        header.addEventListener('click', () => {
-            const isOpen = accordion.classList.contains('open');
-            // Close all
-            document.querySelectorAll('.event-accordion.open').forEach(a => {
-                a.classList.remove('open');
-                a.querySelector('.event-header').setAttribute('aria-expanded', 'false');
+    // — MONTHS MAP —
+    const MONTHS_FULL = {
+        GEN: 'Gennaio', FEB: 'Febbraio', MAR: 'Marzo', APR: 'Aprile',
+        MAG: 'Maggio', GIU: 'Giugno', LUG: 'Luglio', AGO: 'Agosto',
+        SET: 'Settembre', OTT: 'Ottobre', NOV: 'Novembre', DIC: 'Dicembre'
+    };
+
+    function esc(str) {
+        if (!str) return '';
+        const d = document.createElement('span');
+        d.textContent = str;
+        return d.innerHTML;
+    }
+
+    // — Load Events from JSON —
+    const eventsList = document.getElementById('eventsList');
+    if (eventsList) {
+        fetch('data/events.json')
+            .then(r => r.json())
+            .then(events => {
+                const active = events.filter(e => e.active !== false);
+                if (!active.length) {
+                    eventsList.innerHTML = '<p style="color:var(--white-dim); text-align:center;">Nessun evento in programma.</p>';
+                    return;
+                }
+                eventsList.innerHTML = active.map((ev, i) => {
+                    const monthFull = MONTHS_FULL[ev.date_month] || ev.date_month;
+                    const posterHtml = ev.image
+                        ? '<div class="event-poster"><img src="' + esc(ev.image) + '" alt="' + esc(ev.title) + '" class="event-poster-img"></div>'
+                        : '<div class="event-poster"><div class="event-poster-placeholder"><span>Locandina</span></div></div>';
+                    return '<article class="event-accordion anim" style="transition-delay:' + (i * 0.12) + 's">' +
+                        '<button class="event-header" aria-expanded="false">' +
+                            '<span class="event-date">' +
+                                '<span class="event-date-day">' + esc(ev.date_day) + '</span>' +
+                                '<span class="event-date-month">' + esc(ev.date_month) + '</span>' +
+                            '</span>' +
+                            '<div class="event-header-text">' +
+                                '<h3 class="event-name">' + esc(ev.title) + '</h3>' +
+                                '<span class="event-when">' + esc(ev.time) + '</span>' +
+                            '</div>' +
+                            '<span class="event-toggle">' +
+                                '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>' +
+                            '</span>' +
+                        '</button>' +
+                        '<div class="event-body">' +
+                            '<div class="event-body-inner">' +
+                                '<div class="event-info">' +
+                                    '<p class="event-desc">' + esc(ev.description) + '</p>' +
+                                    '<div class="event-details">' +
+                                        '<span class="event-detail"><strong>Quando:</strong> ' + esc(ev.date_day) + ' ' + esc(monthFull) + ' ' + esc(ev.date_year) + ', ' + esc(ev.time) + '</span>' +
+                                        '<span class="event-detail"><strong>Prezzo:</strong> ' + esc(ev.price) + '</span>' +
+                                        (ev.includes ? '<span class="event-detail"><strong>Include:</strong> ' + esc(ev.includes) + '</span>' : '') +
+                                    '</div>' +
+                                    '<a href="tel:0331570338" class="btn btn--sm">Prenota il tuo posto</a>' +
+                                '</div>' +
+                                posterHtml +
+                            '</div>' +
+                        '</div>' +
+                    '</article>';
+                }).join('');
+
+                // Wire accordion
+                initAccordions();
+                // Observe new elements for scroll animation
+                eventsList.querySelectorAll('.anim').forEach(el => obs.observe(el));
+            })
+            .catch(() => {
+                eventsList.innerHTML = '<p style="color:var(--white-dim); text-align:center;">Errore nel caricamento degli eventi.</p>';
             });
-            // Open clicked if it was closed
-            if (!isOpen) {
-                accordion.classList.add('open');
-                header.setAttribute('aria-expanded', 'true');
-            }
+    }
+
+    // — Event Accordion —
+    function initAccordions() {
+        document.querySelectorAll('.event-accordion').forEach(accordion => {
+            const header = accordion.querySelector('.event-header');
+            header.addEventListener('click', () => {
+                const isOpen = accordion.classList.contains('open');
+                document.querySelectorAll('.event-accordion.open').forEach(a => {
+                    a.classList.remove('open');
+                    a.querySelector('.event-header').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    accordion.classList.add('open');
+                    header.setAttribute('aria-expanded', 'true');
+                }
+            });
         });
-    });
+    }
 });

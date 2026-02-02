@@ -1,0 +1,9 @@
+# Allow access to events.json (public data for frontend)
+<Files "events.json">
+    Require all granted
+</Files>
+
+# Block direct access to everything else in /data
+<FilesMatch "\.(?!json$)">
+    Require all denied
+</FilesMatch>

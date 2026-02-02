@@ -13,3 +13,8 @@ Thumbs.db
 node_modules/
 dist/
 .env
+
+# Uploads (user-generated content)
+uploads/events/*
+!uploads/events/.gitkeep
+!uploads/.htaccess

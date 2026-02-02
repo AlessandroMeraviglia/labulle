@@ -1,0 +1,7 @@
+# Only allow image files to be served from uploads
+<FilesMatch "\.(?!(jpg|jpeg|png|webp|gif)$)">
+    Require all denied
+</FilesMatch>
+
+# Disable script execution in uploads directory
+php_flag engine off

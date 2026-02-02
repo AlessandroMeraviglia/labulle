@@ -1,0 +1,44 @@
+[
+    {
+        "id": "evt_001",
+        "title": "Degustazione Guidata",
+        "date_day": "13",
+        "date_month": "FEB",
+        "date_year": "2025",
+        "time": "ore 20:00",
+        "description": "Ti portiamo in giro per l'Italia (senza muoverti dalla sedia). 4 calici + tagliere incluso. Spoiler: finirai per ordinarne un quinto.",
+        "price": "€35 / persona",
+        "includes": "4 calici + tagliere",
+        "image": null,
+        "active": true,
+        "created_at": "2025-01-15 10:00:00"
+    },
+    {
+        "id": "evt_002",
+        "title": "Live Music & Wine",
+        "date_day": "21",
+        "date_month": "FEB",
+        "date_year": "2025",
+        "time": "ore 21:30",
+        "description": "Musica dal vivo, calici in mano, problemi alla porta. L'abbinamento perfetto non è solo cibo e vino.",
+        "price": "Ingresso libero",
+        "includes": "Jazz, Soul, Acustico",
+        "image": null,
+        "active": true,
+        "created_at": "2025-01-15 10:00:00"
+    },
+    {
+        "id": "evt_003",
+        "title": "Meet the Winemaker",
+        "date_day": "8",
+        "date_month": "MAR",
+        "date_year": "2025",
+        "time": "ore 19:00",
+        "description": "Un produttore racconta i suoi vini davanti a chi sa apprezzarli. Ovvero: tu, con il calice in mano.",
+        "price": "€45 / persona",
+        "includes": "Degustazione + tagliere",
+        "image": null,
+        "active": true,
+        "created_at": "2025-01-15 10:00:00"
+    }
+]
