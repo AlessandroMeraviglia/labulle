@@ -216,17 +216,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        function updatePdfBar(section) {
+            var pdfBar = document.getElementById('menuPdfBar');
+            var pdfIt = document.getElementById('menuPdfIt');
+            var pdfEn = document.getElementById('menuPdfEn');
+            var pdfBottom = document.getElementById('menuPdfCtaBottom');
+            var pdfBottomLink = document.getElementById('menuPdfBottomLink');
+            var pdfBottomText = document.getElementById('menuPdfBottomText');
+            var hasIt = section.pdf;
+            var hasEn = section.pdf_en;
+
+            if (hasIt || hasEn) {
+                pdfBar.style.display = '';
+                if (hasIt) { pdfIt.href = section.pdf; pdfIt.style.display = ''; }
+                else { pdfIt.style.display = 'none'; }
+                if (hasEn) { pdfEn.href = section.pdf_en; pdfEn.style.display = ''; }
+                else { pdfEn.style.display = 'none'; }
+            } else {
+                pdfBar.style.display = 'none';
+            }
+
+            // Bottom CTA uses current language
+            var pdfKey = currentLang === 'en' ? 'pdf_en' : 'pdf';
+            if (section[pdfKey]) {
+                pdfBottom.style.display = '';
+                pdfBottomLink.href = section[pdfKey];
+                pdfBottomText.textContent = currentLang === 'en' ? 'Download Full Menu PDF' : 'Scarica il Menu Completo PDF';
+            } else {
+                pdfBottom.style.display = 'none';
+            }
+        }
+
         function renderMenu() {
             if (!menuData) return;
-            const section = menuData[currentTab];
+            var section = menuData[currentTab];
             if (!section) return;
-            const cats = section.categories;
+            var cats = section.categories;
             buildFilters(cats);
 
-            let html = '';
-            cats.forEach(cat => {
-                const catName = getField(cat, 'name');
-                const note = getField(cat, 'note');
+            var html = '';
+            cats.forEach(function(cat) {
+                var catName = getField(cat, 'name');
+                var note = getField(cat, 'note');
                 html += '<div class="menu-section" data-category="' + cat.id + '" data-novita="' + (cat.novita || false) + '">';
                 html += '<h2 class="menu-cat anim">' + escMenu(catName);
                 if (cat.novita) html += ' <span class="menu-novita-badge">' + (currentLang === 'en' ? 'New' : 'Novit\u00e0') + '</span>';
@@ -236,34 +267,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (cat.items && cat.items.length) {
                     html += '<div class="menu-grid">';
-                    cat.items.forEach(item => {
+                    cat.items.forEach(function(item) {
+                        var desc = getField(item, 'desc');
                         html += '<div class="menu-item anim">' +
                             '<div class="menu-item-top">' +
                                 '<span class="menu-name">' + escMenu(getField(item, 'name')) + '</span>' +
                                 '<span class="menu-price">' + escMenu(item.price) + '</span>' +
-                            '</div>' +
-                            '<p class="menu-desc">' + escMenu(getField(item, 'desc')) + '</p>' +
-                        '</div>';
+                            '</div>';
+                        if (desc) html += '<p class="menu-desc">' + escMenu(desc) + '</p>';
+                        html += '</div>';
                     });
                     html += '</div>';
                 }
                 html += '</div>';
             });
             menuContent.innerHTML = html;
-            menuContent.querySelectorAll('.anim').forEach(el => obs.observe(el));
+            menuContent.querySelectorAll('.anim').forEach(function(el) { obs.observe(el); });
 
-            // PDF link
-            const pdfCta = document.getElementById('menuPdfCta');
-            const pdfLink = document.getElementById('menuPdfLink');
-            const pdfText = document.getElementById('menuPdfText');
-            const pdfKey = currentLang === 'en' ? 'pdf_en' : 'pdf';
-            if (section[pdfKey]) {
-                pdfCta.style.display = '';
-                pdfLink.href = section[pdfKey];
-                pdfText.textContent = currentLang === 'en' ? 'Download Menu PDF' : 'Scarica il Menu PDF';
-            } else {
-                pdfCta.style.display = 'none';
-            }
+            // Update PDF buttons
+            updatePdfBar(section);
         }
 
         // Tab switching

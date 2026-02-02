@@ -1,5 +1,8 @@
-# Allow access to events.json (public data for frontend)
+# Allow access to public JSON data for frontend
 <Files "events.json">
+    Require all granted
+</Files>
+<Files "menu.json">
     Require all granted
 </Files>
 

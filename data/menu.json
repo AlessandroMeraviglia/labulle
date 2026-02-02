@@ -10,18 +10,67 @@
                 "novita": true,
                 "items": [
                     {
-                        "name": "Polpette al sugo",
-                        "name_en": "Meatballs in tomato sauce",
-                        "price": "€10",
-                        "desc": "Polpette di manzo cotte lentamente nel sugo di pomodoro. Come quelle della nonna, ma meglio.",
-                        "desc_en": "Beef meatballs slow-cooked in tomato sauce. Like grandma's, but better."
+                        "name": "Valtellina Pizzoccheri",
+                        "name_en": "Valtellina Pizzoccheri",
+                        "price": "12€",
+                        "desc": "",
+                        "desc_en": ""
                     },
                     {
-                        "name": "Uovo cremoso",
-                        "name_en": "Creamy egg",
-                        "price": "€9",
-                        "desc": "Uovo cotto a bassa temperatura, fonduta di parmigiano e tartufo nero.",
-                        "desc_en": "Low-temperature cooked egg, parmesan fondue and black truffle."
+                        "name": "Panciotti Ripieni",
+                        "name_en": "Stuffed Panciotti",
+                        "price": "14€",
+                        "desc": "Di capesante e gamberi su crema di zucca e briciole di prosciutto",
+                        "desc_en": "Scallop and shrimp filled on pumpkin cream with prosciutto crumble"
+                    },
+                    {
+                        "name": "Guancia di Manzo",
+                        "name_en": "Braised Beef Cheek",
+                        "price": "18€",
+                        "desc": "Con purè di patate e cipolla rossa di Tropea IGP caramellata",
+                        "desc_en": "With mashed potatoes and caramelized Tropea IGP red onion"
+                    },
+                    {
+                        "name": "Polpo Cotto nella sua Acqua",
+                        "name_en": "Slow-Cooked Octopus",
+                        "price": "16€",
+                        "desc": "Crema di patate e porri e pancetta affumicata croccante",
+                        "desc_en": "Potato and leek cream with crispy smoked pancetta"
+                    },
+                    {
+                        "name": "Zucca Delica al Forno",
+                        "name_en": "Roasted Delica Pumpkin",
+                        "price": "11€",
+                        "desc": "Con verdurine agro e provola San Vincenzo affumicata fusa",
+                        "desc_en": "With pickled vegetables and melted smoked San Vincenzo provola"
+                    },
+                    {
+                        "name": "Tomahawk \"Black Angus\"*",
+                        "name_en": "Tomahawk \"Black Angus\"*",
+                        "price": "7€/etto",
+                        "desc": "Accompagnato da patate croccanti e verdure grigliate",
+                        "desc_en": "Served with crispy potatoes and grilled vegetables"
+                    },
+                    {
+                        "name": "Filetto di Manzo al Parmigiano",
+                        "name_en": "Beef Fillet with Parmesan",
+                        "price": "24€",
+                        "desc": "200gr di filetto di manzo irlandese con il suo fondo bruno su crema di parmigiano reggiano accompagnato da funghi freschi di stagione e patate grigliate",
+                        "desc_en": "200g Irish beef fillet with its brown jus on parmesan cream, served with fresh seasonal mushrooms and grilled potatoes"
+                    },
+                    {
+                        "name": "Tartare di Fassona* 200g",
+                        "name_en": "Fassona Beef Tartare* 200g",
+                        "price": "20€",
+                        "desc": "Accompagnata da stracciatella di burrata, tuorlo d'uovo, tarallo sbriciolato e verdure grigliate",
+                        "desc_en": "Served with burrata stracciatella, egg yolk, crumbled tarallo and grilled vegetables"
+                    },
+                    {
+                        "name": "Hamburger La Bulle*",
+                        "name_en": "La Bulle Burger*",
+                        "price": "14€",
+                        "desc": "Hamburger di chianina 200g, pomodoro, lattuga, bacon, salsa burger, cheddar, cipolla caramellata",
+                        "desc_en": "200g Chianina beef burger, tomato, lettuce, bacon, burger sauce, cheddar, caramelized onion"
                     }
                 ]
             },
@@ -32,18 +81,60 @@
                 "novita": true,
                 "items": [
                     {
-                        "name": "Tiramisù della casa",
-                        "name_en": "Homemade tiramisù",
-                        "price": "€7",
-                        "desc": "La nostra ricetta classica, con mascarpone fresco e caffè espresso.",
-                        "desc_en": "Our classic recipe with fresh mascarpone and espresso coffee."
+                        "name": "Tiramisù La Bulle",
+                        "name_en": "La Bulle Tiramisù",
+                        "price": "6€",
+                        "desc": "Mousse al mascarpone, savoiardi della tradizione \"sarda\" bagnati al caffè, polvere di cacao",
+                        "desc_en": "Mascarpone mousse, traditional Sardinian ladyfingers soaked in coffee, cocoa powder"
                     },
                     {
-                        "name": "Panna cotta",
-                        "name_en": "Panna cotta",
-                        "price": "€6",
-                        "desc": "Con coulis di frutti di bosco e crumble di biscotto.",
-                        "desc_en": "With mixed berry coulis and biscuit crumble."
+                        "name": "Crepes alla Nutella",
+                        "name_en": "Nutella Crepes",
+                        "price": "6€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Piada alla Nutella",
+                        "name_en": "Nutella Piada",
+                        "price": "5€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Selezione di Frutta Fresca",
+                        "name_en": "Fresh Fruit Selection",
+                        "price": "8€",
+                        "desc": "Su crema al mango e riduzione di frutti rossi",
+                        "desc_en": "On mango cream with red berry reduction"
+                    },
+                    {
+                        "name": "Cheesecake al Pistacchio",
+                        "name_en": "Pistachio Cheesecake",
+                        "price": "8€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Tortino di Cioccolato al Cuore Caldo",
+                        "name_en": "Warm Chocolate Lava Cake",
+                        "price": "7€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Strudel di Mele",
+                        "name_en": "Apple Strudel",
+                        "price": "7€",
+                        "desc": "Fatto in casa con gelato alla cannella",
+                        "desc_en": "Homemade with cinnamon ice cream"
+                    },
+                    {
+                        "name": "Crema Fritta",
+                        "name_en": "Fried Custard",
+                        "price": "7€",
+                        "desc": "Con noce pecan sabbiata e salsa mou",
+                        "desc_en": "With candied pecan and toffee sauce"
                     }
                 ]
             },
@@ -54,54 +145,75 @@
                 "novita": false,
                 "items": [
                     {
-                        "name": "Bruschetta Classica",
-                        "name_en": "Classic Bruschetta",
-                        "price": "€6",
-                        "desc": "Pomodorini freschi, basilico, olio EVO e aglio sfregato. Semplice, perfetta.",
-                        "desc_en": "Fresh cherry tomatoes, basil, EVO oil and rubbed garlic. Simple, perfect."
+                        "name": "Ai 4 Pomodori",
+                        "name_en": "Four Tomato Bruschetta",
+                        "price": "4pz 8€",
+                        "desc": "",
+                        "desc_en": ""
                     },
                     {
-                        "name": "Bruschetta Burrata",
-                        "name_en": "Burrata Bruschetta",
-                        "price": "€9",
-                        "desc": "Burrata pugliese, pomodorini confit e basilico fresco.",
-                        "desc_en": "Apulian burrata, confit cherry tomatoes and fresh basil."
+                        "name": "Nuove Bruschette Golose",
+                        "name_en": "New Gourmet Bruschette",
+                        "price": "4pz 12€",
+                        "desc": "Brie noci e miele · Mortadella, crescenza e pistacchi · Crudo, bufala, glassa all'aceto balsamico · Stracciatella affumicata, tartare di fassona e crema di basilico",
+                        "desc_en": "Brie, walnuts and honey · Mortadella, crescenza and pistachios · Prosciutto, buffalo mozzarella, balsamic glaze · Smoked stracciatella, beef tartare and basil cream"
                     },
                     {
-                        "name": "Bruschetta Nduja",
-                        "name_en": "Nduja Bruschetta",
-                        "price": "€8",
-                        "desc": "Nduja calabrese, stracciatella e miele di castagno.",
-                        "desc_en": "Calabrian nduja, stracciatella and chestnut honey."
+                        "name": "Nuove Bruschette di Mare",
+                        "name_en": "New Seafood Bruschette",
+                        "price": "4pz 16€",
+                        "desc": "Moscardini ubriachi alla Luciana · Polpo piastrato su crema di ceci · Alici del Cantabrico su burrata di bufala, zucchine alla menta e scorze di agrumi candite · Carpaccio di spada affumicato, stracciatella ed estratto di cipolla di Tropea",
+                        "desc_en": "Drunken baby octopus Luciana-style · Grilled octopus on chickpea cream · Cantabrian anchovies on buffalo burrata, mint zucchini and candied citrus peel · Smoked swordfish carpaccio, stracciatella and Tropea onion extract"
                     }
                 ]
             },
             {
                 "id": "sfizi",
                 "name": "Gli Sfizi",
-                "name_en": "Bites",
+                "name_en": "Bites & Snacks",
                 "novita": false,
                 "items": [
                     {
-                        "name": "Olive Ascolane",
-                        "name_en": "Fried Stuffed Olives",
-                        "price": "€7",
-                        "desc": "Ripiene e fritte con salsa all'aglio nero. Avvertenza: creano dipendenza.",
-                        "desc_en": "Stuffed and fried with black garlic sauce. Warning: highly addictive."
+                        "name": "Patate al Rosmarino*",
+                        "name_en": "Rosemary Potatoes*",
+                        "price": "4€",
+                        "desc": "",
+                        "desc_en": ""
                     },
                     {
-                        "name": "Tartare di Fassona",
-                        "name_en": "Fassona Beef Tartare",
-                        "price": "€15",
-                        "desc": "Battuta al coltello, tuorlo marinato, capperi e crostini.",
-                        "desc_en": "Hand-chopped, marinated yolk, capers and crostini."
+                        "name": "Gnocco Fritto*",
+                        "name_en": "Fried Dough*",
+                        "price": "4€",
+                        "desc": "",
+                        "desc_en": ""
                     },
                     {
-                        "name": "Crocchette di patate",
-                        "name_en": "Potato Croquettes",
-                        "price": "€7",
-                        "desc": "Croccanti fuori, cremose dentro, con cuore filante di provola affumicata.",
-                        "desc_en": "Crispy outside, creamy inside, with a melting smoked provola heart."
+                        "name": "Grana e Miele*",
+                        "name_en": "Parmesan & Honey*",
+                        "price": "6€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Prosciutto Crudo e Gnocco Fritto*",
+                        "name_en": "Prosciutto & Fried Dough*",
+                        "price": "12€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Arrosticini con Patate al Rosmarino*",
+                        "name_en": "Lamb Skewers with Rosemary Potatoes*",
+                        "price": "15€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Hamburger La Bulle*",
+                        "name_en": "La Bulle Burger*",
+                        "price": "14€",
+                        "desc": "Hamburger di chianina 200g, pomodoro, lattuga, bacon, salsa burger, cheddar, cipolla caramellata",
+                        "desc_en": "200g Chianina beef burger, tomato, lettuce, bacon, burger sauce, cheddar, caramelized onion"
                     }
                 ]
             },
@@ -114,23 +226,37 @@
                     {
                         "name": "Tagliere La Bulle",
                         "name_en": "La Bulle Board",
-                        "price": "€24",
-                        "desc": "5 formaggi + 4 salumi + miele + confetture + grissini artigianali. Praticamente, la felicità.",
-                        "desc_en": "5 cheeses + 4 cured meats + honey + jams + artisan breadsticks. Basically, happiness."
-                    },
-                    {
-                        "name": "Tagliere Formaggi",
-                        "name_en": "Cheese Board",
-                        "price": "€18",
-                        "desc": "5 formaggi selezionati, miele di acacia, noci e mostarda.",
-                        "desc_en": "5 selected cheeses, acacia honey, walnuts and mustard."
+                        "price": "16€ — 90€",
+                        "desc": "Mini 16€ · Piccolo 24€ · Medio 38€ · Gigante 90€ — Mix di salumi, formaggi con miele e composte",
+                        "desc_en": "Mini 16€ · Small 24€ · Medium 38€ · Giant 90€ — Mixed cured meats, cheeses with honey and preserves"
                     },
                     {
                         "name": "Tagliere Salumi",
                         "name_en": "Cured Meat Board",
-                        "price": "€16",
-                        "desc": "Crudo 24 mesi, bresaola, coppa, salame e lardo.",
-                        "desc_en": "24-month prosciutto, bresaola, coppa, salami and lardo."
+                        "price": "16€ — 24€",
+                        "desc": "Piccolo 16€ · Medio 24€ — Mix di salumi",
+                        "desc_en": "Small 16€ · Medium 24€ — Mixed cured meats"
+                    },
+                    {
+                        "name": "Tagliere Formaggi",
+                        "name_en": "Cheese Board",
+                        "price": "28€",
+                        "desc": "Mix di formaggi freschi e stagionati",
+                        "desc_en": "Mix of fresh and aged cheeses"
+                    },
+                    {
+                        "name": "Patanegra Joselito e Gnocco Fritto*",
+                        "name_en": "Joselito Patanegra & Fried Dough*",
+                        "price": "28€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Tagliere Iberico",
+                        "name_en": "Iberian Board",
+                        "price": "48€",
+                        "desc": "Paleta Joselito Gran Riserva, Salchichón Joselito, Chorizo Joselito, Coppa Joselito",
+                        "desc_en": "Joselito Gran Reserva Paleta, Joselito Salchichón, Joselito Chorizo, Joselito Coppa"
                     }
                 ]
             },
@@ -141,18 +267,25 @@
                 "novita": false,
                 "items": [
                     {
-                        "name": "Ostriche Fine de Claire",
-                        "name_en": "Fine de Claire Oysters",
-                        "price": "€4 / pz",
-                        "desc": "Servite con limone fresco e pane di segale.",
-                        "desc_en": "Served with fresh lemon and rye bread."
+                        "name": "\"Fine de Claire\"",
+                        "name_en": "\"Fine de Claire\"",
+                        "price": "3€ al pz",
+                        "desc": "Provenienza Marennes Oléron (Francia)",
+                        "desc_en": "From Marennes Oléron (France)"
                     },
                     {
-                        "name": "Plateau 6 pezzi",
-                        "name_en": "Plateau 6 pieces",
-                        "price": "€22",
-                        "desc": "Selezione di ostriche con salsa mignonette e limone.",
-                        "desc_en": "Oyster selection with mignonette sauce and lemon."
+                        "name": "\"Regal Or\"",
+                        "name_en": "\"Regal Or\"",
+                        "price": "7€ al pz",
+                        "desc": "Provenienza Bannow Bay (Irlanda)",
+                        "desc_en": "From Bannow Bay (Ireland)"
+                    },
+                    {
+                        "name": "\"Gillardeau\"",
+                        "name_en": "\"Gillardeau\"",
+                        "price": "6€ al pz",
+                        "desc": "Provenienza Charente-Maritime (Francia)",
+                        "desc_en": "From Charente-Maritime (France)"
                     }
                 ]
             },
@@ -161,20 +294,92 @@
                 "name": "Le Piade",
                 "name_en": "Piadine",
                 "novita": false,
+                "note": "Su richiesta integrali +2€",
+                "note_en": "Whole wheat available on request +2€",
                 "items": [
                     {
-                        "name": "Piada Crudo e Squacquerone",
-                        "name_en": "Prosciutto & Squacquerone Piada",
-                        "price": "€9",
-                        "desc": "Crudo di Parma, squacquerone DOP e rucola.",
-                        "desc_en": "Parma prosciutto, DOP squacquerone and rocket."
+                        "name": "Primavera",
+                        "name_en": "Primavera",
+                        "price": "6€",
+                        "desc": "Cotto, mozzarella, lattughino, pomodoro e salsa rosa",
+                        "desc_en": "Ham, mozzarella, lettuce, tomato and pink sauce"
                     },
                     {
-                        "name": "Piada Mortadella",
-                        "name_en": "Mortadella Piada",
-                        "price": "€8",
-                        "desc": "Mortadella Bologna IGP, stracciatella e pistacchi.",
-                        "desc_en": "Bologna IGP mortadella, stracciatella and pistachios."
+                        "name": "Boscaiola",
+                        "name_en": "Boscaiola",
+                        "price": "7€",
+                        "desc": "Speck, brie e salsa ai funghi",
+                        "desc_en": "Speck, brie and mushroom sauce"
+                    },
+                    {
+                        "name": "Classica",
+                        "name_en": "Classic",
+                        "price": "6€",
+                        "desc": "Cotto, mozzarella, pomodoro, maionese",
+                        "desc_en": "Ham, mozzarella, tomato, mayonnaise"
+                    },
+                    {
+                        "name": "Romagnola",
+                        "name_en": "Romagnola",
+                        "price": "7,5€",
+                        "desc": "Crudo, squacquerone, rucola",
+                        "desc_en": "Prosciutto, squacquerone, rocket"
+                    },
+                    {
+                        "name": "Vegetariana",
+                        "name_en": "Vegetarian",
+                        "price": "7€",
+                        "desc": "Verdure grigliate, mozzarella",
+                        "desc_en": "Grilled vegetables, mozzarella"
+                    },
+                    {
+                        "name": "Alice",
+                        "name_en": "Alice",
+                        "price": "7€",
+                        "desc": "Crudo, brie, miele, rucola",
+                        "desc_en": "Prosciutto, brie, honey, rocket"
+                    },
+                    {
+                        "name": "Tonnata",
+                        "name_en": "Tonnata",
+                        "price": "7€",
+                        "desc": "Tonno, mozzarella, salsa rosa, rucola, pomodoro",
+                        "desc_en": "Tuna, mozzarella, pink sauce, rocket, tomato"
+                    },
+                    {
+                        "name": "Piada Pizza",
+                        "name_en": "Piada Pizza",
+                        "price": "6€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Piada Pizza Vegetariana",
+                        "name_en": "Vegetarian Piada Pizza",
+                        "price": "7€",
+                        "desc": "Con verdure grigliate",
+                        "desc_en": "With grilled vegetables"
+                    },
+                    {
+                        "name": "Piada Pizza con Cotto",
+                        "name_en": "Piada Pizza with Ham",
+                        "price": "7€",
+                        "desc": "",
+                        "desc_en": ""
+                    },
+                    {
+                        "name": "Sfiziosa",
+                        "name_en": "Sfiziosa",
+                        "price": "7€",
+                        "desc": "Crudo, brie, pomodoro, rucola, salsa rosa",
+                        "desc_en": "Prosciutto, brie, tomato, rocket, pink sauce"
+                    },
+                    {
+                        "name": "Mortazza",
+                        "name_en": "Mortazza",
+                        "price": "7,5€",
+                        "desc": "Mortadella, patè di olive, squacquerone e noci",
+                        "desc_en": "Mortadella, olive pâté, squacquerone and walnuts"
                     }
                 ]
             }
@@ -198,32 +403,88 @@
                 "name_en": "Cocktails",
                 "items": [
                     {
+                        "name": "Hanky Panky",
+                        "name_en": "Hanky Panky",
+                        "price": "10€",
+                        "desc": "Vermouth Antica Formula · Fernet Branca · Portobello Gin",
+                        "desc_en": "Vermouth Antica Formula · Fernet Branca · Portobello Gin"
+                    },
+                    {
+                        "name": "Boulevardier",
+                        "name_en": "Boulevardier",
+                        "price": "10€",
+                        "desc": "Bulleit Rye Whisky · Bitter Fusetti · Vermouth Cocchi",
+                        "desc_en": "Bulleit Rye Whisky · Bitter Fusetti · Vermouth Cocchi"
+                    },
+                    {
                         "name": "Negroni",
                         "name_en": "Negroni",
-                        "price": "€10",
-                        "desc": "Gin, Campari, Vermouth rosso. Il classico che non tradisce mai.",
-                        "desc_en": "Gin, Campari, red Vermouth. The classic that never fails."
+                        "price": "10€",
+                        "desc": "Tanqueray Gin · Vermouth Antica Formula · Bitter Campari",
+                        "desc_en": "Tanqueray Gin · Vermouth Antica Formula · Bitter Campari"
                     },
                     {
-                        "name": "Spritz",
-                        "name_en": "Spritz",
-                        "price": "€8",
-                        "desc": "Prosecco, Aperol, soda. L'aperitivo per eccellenza.",
-                        "desc_en": "Prosecco, Aperol, soda. The ultimate aperitivo."
+                        "name": "Martinez",
+                        "name_en": "Martinez",
+                        "price": "10€",
+                        "desc": "Crocodile Gin Del Professore · Vermouth Cocchi · Maraschino Luxardo · Angostura Orange Bitter",
+                        "desc_en": "Crocodile Gin Del Professore · Vermouth Cocchi · Maraschino Luxardo · Angostura Orange Bitter"
                     },
                     {
-                        "name": "Old Fashioned",
-                        "name_en": "Old Fashioned",
-                        "price": "€12",
-                        "desc": "Bourbon, zucchero, Angostura, scorza d'arancia.",
-                        "desc_en": "Bourbon, sugar, Angostura, orange peel."
+                        "name": "Fusettino",
+                        "name_en": "Fusettino",
+                        "price": "10€",
+                        "desc": "Vermouth Carpano Punt e Mes · Bitter Fusetti alla Banana · Granatina home-made",
+                        "desc_en": "Vermouth Carpano Punt e Mes · Banana Bitter Fusetti · Homemade Grenadine"
                     },
                     {
-                        "name": "Gin Tonic Premium",
-                        "name_en": "Premium Gin & Tonic",
-                        "price": "€11",
-                        "desc": "Gin selezionato, tonica premium e botaniche fresche.",
-                        "desc_en": "Selected gin, premium tonic and fresh botanicals."
+                        "name": "Dry Martini",
+                        "name_en": "Dry Martini",
+                        "price": "10€",
+                        "desc": "Plymouth Gin · Vermouth Extra Dry",
+                        "desc_en": "Plymouth Gin · Extra Dry Vermouth"
+                    },
+                    {
+                        "name": "Luxury Spritz",
+                        "name_en": "Luxury Spritz",
+                        "price": "12€",
+                        "desc": "London Dry Gin · Aperol Reduction · Campari Biancosarti · Champagne Syrup · Raspberry Liqueur · Soda",
+                        "desc_en": "London Dry Gin · Aperol Reduction · Campari Biancosarti · Champagne Syrup · Raspberry Liqueur · Soda"
+                    },
+                    {
+                        "name": "Pretty Bird",
+                        "name_en": "Pretty Bird",
+                        "price": "10€",
+                        "desc": "London Dry Gin · Orange Liqueur · Grapefruit Juice · Orange Juice · Lime Juice · Pomegranate Syrup · Cinnamon Syrup",
+                        "desc_en": "London Dry Gin · Orange Liqueur · Grapefruit Juice · Orange Juice · Lime Juice · Pomegranate Syrup · Cinnamon Syrup"
+                    },
+                    {
+                        "name": "Oaxaca Coffee Express",
+                        "name_en": "Oaxaca Coffee Express",
+                        "price": "12€",
+                        "desc": "Mezcal Reposado · Espresso · Ancho Reyes Coffee Liqueur · Cocoa Bitters",
+                        "desc_en": "Mezcal Reposado · Espresso · Ancho Reyes Coffee Liqueur · Cocoa Bitters"
+                    },
+                    {
+                        "name": "B&B Mojito",
+                        "name_en": "B&B Mojito",
+                        "price": "10€",
+                        "desc": "Blackberry Infused Rum · Lime Juice · Blackberry Liqueur · Fresh Mint · Soda",
+                        "desc_en": "Blackberry Infused Rum · Lime Juice · Blackberry Liqueur · Fresh Mint · Soda"
+                    },
+                    {
+                        "name": "The Alabazam",
+                        "name_en": "The Alabazam",
+                        "price": "10€",
+                        "desc": "Cognac · Cointreau · Lemon Juice · Sugar Syrup · Angostura Bitters",
+                        "desc_en": "Cognac · Cointreau · Lemon Juice · Sugar Syrup · Angostura Bitters"
+                    },
+                    {
+                        "name": "Fashionuts",
+                        "name_en": "Fashionuts",
+                        "price": "12€",
+                        "desc": "Bourbon Whisky · Frangelico · Sherry Pedro Ximenez · Honey Syrup",
+                        "desc_en": "Bourbon Whisky · Frangelico · Sherry Pedro Ximenez · Honey Syrup"
                     }
                 ]
             },
@@ -233,46 +494,46 @@
                 "name_en": "Non-Alcoholic Cocktails",
                 "items": [
                     {
-                        "name": "Virgin Mojito",
-                        "name_en": "Virgin Mojito",
-                        "price": "€7",
-                        "desc": "Lime, menta fresca, zucchero di canna e soda.",
-                        "desc_en": "Lime, fresh mint, cane sugar and soda."
+                        "name": "Green Apple",
+                        "name_en": "Green Apple",
+                        "price": "9€",
+                        "desc": "Seedlip Garden · Green Apple Juice · Lemon Juice · Maple Syrup · Soda",
+                        "desc_en": "Seedlip Garden · Green Apple Juice · Lemon Juice · Maple Syrup · Soda"
                     },
                     {
-                        "name": "Fruit Spritz",
-                        "name_en": "Fruit Spritz",
-                        "price": "€7",
-                        "desc": "Soda, succo di frutto della passione, sciroppo di fiori di sambuco.",
-                        "desc_en": "Soda, passion fruit juice, elderflower syrup."
+                        "name": "Lavander",
+                        "name_en": "Lavander",
+                        "price": "9€",
+                        "desc": "Tanqueray 0.0 · Lavender Flower Syrup · Tonic Water",
+                        "desc_en": "Tanqueray 0.0 · Lavender Flower Syrup · Tonic Water"
                     },
                     {
-                        "name": "Ginger Mule",
-                        "name_en": "Ginger Mule",
-                        "price": "€7",
-                        "desc": "Ginger beer, lime e menta. Fresco e dissetante.",
-                        "desc_en": "Ginger beer, lime and mint. Fresh and refreshing."
-                    }
-                ]
-            },
-            {
-                "id": "birre",
-                "name": "Birre",
-                "name_en": "Beers",
-                "items": [
-                    {
-                        "name": "Birra alla spina",
-                        "name_en": "Draft beer",
-                        "price": "€5",
-                        "desc": "Selezione rotante di birre artigianali italiane. Chiedi al bancone.",
-                        "desc_en": "Rotating selection of Italian craft beers. Ask at the bar."
+                        "name": "Piango Coi Lampo",
+                        "name_en": "Piango Coi Lampo",
+                        "price": "10€",
+                        "desc": "Tanqueray 0.0 · Raspberry Shrub · Soda",
+                        "desc_en": "Tanqueray 0.0 · Raspberry Shrub · Soda"
                     },
                     {
-                        "name": "Birra artigianale bottiglia",
-                        "name_en": "Craft beer bottle",
-                        "price": "€6",
-                        "desc": "IPA, Lager, Weiss — selezione di birrifici locali e nazionali.",
-                        "desc_en": "IPA, Lager, Weiss — selection from local and national breweries."
+                        "name": "Paloma Senza Paloma",
+                        "name_en": "Paloma Senza Paloma",
+                        "price": "9€",
+                        "desc": "Seedlip Grove 42 · Lime Juice · Agave Syrup · Pink Grapefruit Soda",
+                        "desc_en": "Seedlip Grove 42 · Lime Juice · Agave Syrup · Pink Grapefruit Soda"
+                    },
+                    {
+                        "name": "Il Mago di Orz",
+                        "name_en": "Il Mago di Orz",
+                        "price": "10€",
+                        "desc": "Tanqueray 0.0 · Almond and Pistachio Orgeat · Soda",
+                        "desc_en": "Tanqueray 0.0 · Almond and Pistachio Orgeat · Soda"
+                    },
+                    {
+                        "name": "L'Imperdibile",
+                        "name_en": "L'Imperdibile",
+                        "price": "8€",
+                        "desc": "Non-alcoholic Spritz",
+                        "desc_en": "Non-alcoholic Spritz"
                     }
                 ]
             }
