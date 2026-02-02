@@ -3,6 +3,37 @@ require_once __DIR__ . '/config.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
+// --- Public endpoint: newsletter subscribe (no auth) ---
+$action = $_GET['action'] ?? '';
+if ($action === 'subscribe' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL);
+    if (!$email) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Email non valida']);
+        exit;
+    }
+    $subs = [];
+    if (file_exists(SUBSCRIBERS_FILE)) {
+        $subs = json_decode(file_get_contents(SUBSCRIBERS_FILE), true) ?: [];
+    }
+    // Check duplicate
+    foreach ($subs as $s) {
+        if (strtolower($s['email']) === strtolower($email)) {
+            echo json_encode(['success' => true, 'message' => 'Già iscritto']);
+            exit;
+        }
+    }
+    $subs[] = [
+        'email' => $email,
+        'date' => date('Y-m-d H:i:s'),
+        'ip' => $_SERVER['REMOTE_ADDR'] ?? ''
+    ];
+    if (!is_dir(DATA_DIR)) mkdir(DATA_DIR, 0755, true);
+    file_put_contents(SUBSCRIBERS_FILE, json_encode($subs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    echo json_encode(['success' => true]);
+    exit;
+}
+
 if (!isLoggedIn()) {
     http_response_code(401);
     echo json_encode(['error' => 'Non autorizzato']);
@@ -375,6 +406,67 @@ try {
             $menu[$section][$pdfKey] = handlePdfUpload($_FILES['pdf']);
             saveMenu($menu);
             echo json_encode(['success' => true, 'path' => $menu[$section][$pdfKey]]);
+            exit;
+
+        // =====================
+        // NEWSLETTER ENDPOINTS
+        // =====================
+
+        // GET: list subscribers
+        case 'newsletter_list':
+            if ($method !== 'GET') break;
+            $subs = [];
+            if (file_exists(SUBSCRIBERS_FILE)) {
+                $subs = json_decode(file_get_contents(SUBSCRIBERS_FILE), true) ?: [];
+            }
+            echo json_encode($subs);
+            exit;
+
+        // POST: delete subscribers
+        case 'newsletter_delete':
+            if ($method !== 'POST') break;
+            if (!verifyCsrfToken($_POST['csrf_token'] ?? '')) {
+                throw new Exception('Token CSRF non valido');
+            }
+            $emails = json_decode($_POST['emails'] ?? '[]', true);
+            if (!is_array($emails) || empty($emails)) {
+                throw new Exception('Nessuna email selezionata');
+            }
+            $emailsLower = array_map('strtolower', $emails);
+            $subs = [];
+            if (file_exists(SUBSCRIBERS_FILE)) {
+                $subs = json_decode(file_get_contents(SUBSCRIBERS_FILE), true) ?: [];
+            }
+            $subs = array_values(array_filter($subs, function($s) use ($emailsLower) {
+                return !in_array(strtolower($s['email']), $emailsLower);
+            }));
+            file_put_contents(SUBSCRIBERS_FILE, json_encode($subs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+            echo json_encode(['success' => true, 'remaining' => count($subs)]);
+            exit;
+
+        // GET: export CSV
+        case 'newsletter_export':
+            if ($method !== 'GET') break;
+            $subs = [];
+            if (file_exists(SUBSCRIBERS_FILE)) {
+                $subs = json_decode(file_get_contents(SUBSCRIBERS_FILE), true) ?: [];
+            }
+            // Filter by selected emails if provided
+            $selected = $_GET['emails'] ?? '';
+            if ($selected) {
+                $selectedEmails = array_map('strtolower', explode(',', $selected));
+                $subs = array_filter($subs, function($s) use ($selectedEmails) {
+                    return in_array(strtolower($s['email']), $selectedEmails);
+                });
+            }
+            header('Content-Type: text/csv; charset=utf-8');
+            header('Content-Disposition: attachment; filename="newsletter_subscribers_' . date('Y-m-d') . '.csv"');
+            $out = fopen('php://output', 'w');
+            fputcsv($out, ['Email', 'Data Iscrizione', 'IP']);
+            foreach ($subs as $s) {
+                fputcsv($out, [$s['email'], $s['date'] ?? '', $s['ip'] ?? '']);
+            }
+            fclose($out);
             exit;
 
         default:

@@ -62,12 +62,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = form.querySelector('.btn');
             const txt = btn.textContent;
             btn.textContent = 'Invio...'; btn.disabled = true;
-            setTimeout(() => {
-                msg.textContent = 'Perfetto! Sei dei nostri.';
-                msg.className = 'form-msg success';
-                form.reset(); btn.textContent = txt; btn.disabled = false;
-                setTimeout(() => { msg.textContent = ''; msg.className = 'form-msg'; }, 5000);
-            }, 1200);
+            const fd = new FormData();
+            fd.append('email', email);
+            fetch('admin/api.php?action=subscribe', { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        msg.textContent = 'Perfetto! Sei dei nostri.';
+                        msg.className = 'form-msg success';
+                        form.reset();
+                    } else {
+                        msg.textContent = data.error || 'Errore. Riprova.';
+                        msg.className = 'form-msg error';
+                    }
+                    btn.textContent = txt; btn.disabled = false;
+                    setTimeout(() => { msg.textContent = ''; msg.className = 'form-msg'; }, 5000);
+                })
+                .catch(() => {
+                    msg.textContent = 'Errore di connessione. Riprova.';
+                    msg.className = 'form-msg error';
+                    btn.textContent = txt; btn.disabled = false;
+                });
         });
     }
 

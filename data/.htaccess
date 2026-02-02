@@ -6,6 +6,11 @@
     Require all granted
 </Files>
 
+# Block subscribers data (private)
+<Files "subscribers.json">
+    Require all denied
+</Files>
+
 # Block direct access to everything else in /data
 <FilesMatch "\.(?!json$)">
     Require all denied

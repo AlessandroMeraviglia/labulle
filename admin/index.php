@@ -514,6 +514,7 @@ $loggedIn = isLoggedIn();
     <div class="admin-tabs">
         <button class="admin-tab active" data-panel="events">Eventi</button>
         <button class="admin-tab" data-panel="menu">Menu</button>
+        <button class="admin-tab" data-panel="newsletter">Newsletter</button>
     </div>
 
     <!-- Events Panel -->
@@ -526,6 +527,39 @@ $loggedIn = isLoggedIn();
         <div class="event-list" id="eventList">
             <div class="empty-state" id="emptyState">
                 <p>Nessun evento presente.<br>Crea il primo evento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Panel -->
+    <div class="admin-panel" id="panel-newsletter">
+        <div class="section-title">
+            <span>Newsletter Iscritti</span>
+            <span style="font-size:0.8rem;color:var(--white-dim);font-family:var(--font-body);" id="subsCount"></span>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+            <button class="btn btn--primary btn--sm" onclick="exportSubsCsv('all')">Esporta tutti CSV</button>
+            <button class="btn btn--outline btn--sm" onclick="exportSubsCsv('selected')" id="btnExportSelected" style="display:none;">Esporta selezionati CSV</button>
+            <button class="btn btn--danger btn--sm" onclick="deleteSelectedSubs()" id="btnDeleteSelected" style="display:none;">Elimina selezionati</button>
+        </div>
+
+        <div id="subsTableWrap">
+            <table style="width:100%;border-collapse:collapse;" id="subsTable">
+                <thead>
+                    <tr style="border-bottom:1px solid var(--border);">
+                        <th style="padding:10px 12px;text-align:left;width:40px;">
+                            <input type="checkbox" id="selectAllSubs" onchange="toggleAllSubs(this.checked)">
+                        </th>
+                        <th style="padding:10px 12px;text-align:left;font-size:0.65rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);">Email</th>
+                        <th style="padding:10px 12px;text-align:left;font-size:0.65rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);">Data</th>
+                    </tr>
+                </thead>
+                <tbody id="subsBody">
+                </tbody>
+            </table>
+            <div class="empty-state" id="subsEmpty" style="display:none;">
+                <p>Nessun iscritto alla newsletter.</p>
             </div>
         </div>
     </div>
@@ -869,6 +903,7 @@ document.querySelectorAll('.admin-tab').forEach(tab => {
         tab.classList.add('active');
         document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
         if (tab.dataset.panel === 'menu' && !menuDataLoaded) loadMenuAdmin();
+        if (tab.dataset.panel === 'newsletter' && !nlLoaded) loadSubscribers();
     });
 });
 
@@ -1055,6 +1090,95 @@ function deleteMenuItem(catId, idx) {
             if (data.success) { showToast('Piatto eliminato'); loadMenuAdmin(); }
             else showToast(data.error, 'error');
         }).catch(() => showToast('Errore', 'error'));
+}
+
+// ==========================
+// NEWSLETTER ADMIN
+// ==========================
+let subscribers = [];
+let nlLoaded = false;
+
+async function loadSubscribers() {
+    try {
+        const res = await fetch(API + '?action=newsletter_list');
+        subscribers = await res.json();
+        nlLoaded = true;
+        renderSubscribers();
+    } catch(e) {
+        showToast('Errore caricamento iscritti', 'error');
+    }
+}
+
+function renderSubscribers() {
+    const body = document.getElementById('subsBody');
+    const empty = document.getElementById('subsEmpty');
+    const count = document.getElementById('subsCount');
+    count.textContent = subscribers.length + ' iscritti';
+
+    if (!subscribers.length) {
+        body.innerHTML = '';
+        empty.style.display = 'block';
+        document.getElementById('subsTable').style.display = 'none';
+        return;
+    }
+    empty.style.display = 'none';
+    document.getElementById('subsTable').style.display = '';
+    body.innerHTML = subscribers.map((s, i) => {
+        const d = s.date ? s.date.substring(0, 10) : '—';
+        return '<tr style="border-bottom:1px solid var(--border);">' +
+            '<td style="padding:10px 12px;"><input type="checkbox" class="sub-check" data-email="' + esc(s.email) + '" onchange="updateSubsSelection()"></td>' +
+            '<td style="padding:10px 12px;font-size:0.85rem;color:var(--white);">' + esc(s.email) + '</td>' +
+            '<td style="padding:10px 12px;font-size:0.8rem;color:var(--white-dim);">' + esc(d) + '</td>' +
+        '</tr>';
+    }).join('');
+    document.getElementById('selectAllSubs').checked = false;
+    updateSubsSelection();
+}
+
+function toggleAllSubs(checked) {
+    document.querySelectorAll('.sub-check').forEach(cb => cb.checked = checked);
+    updateSubsSelection();
+}
+
+function getSelectedEmails() {
+    return Array.from(document.querySelectorAll('.sub-check:checked')).map(cb => cb.dataset.email);
+}
+
+function updateSubsSelection() {
+    const sel = getSelectedEmails();
+    document.getElementById('btnExportSelected').style.display = sel.length ? '' : 'none';
+    document.getElementById('btnDeleteSelected').style.display = sel.length ? '' : 'none';
+}
+
+function exportSubsCsv(mode) {
+    let url = API + '?action=newsletter_export';
+    if (mode === 'selected') {
+        const emails = getSelectedEmails();
+        if (!emails.length) { showToast('Seleziona almeno un iscritto', 'error'); return; }
+        url += '&emails=' + encodeURIComponent(emails.join(','));
+    }
+    window.open(url, '_blank');
+}
+
+async function deleteSelectedSubs() {
+    const emails = getSelectedEmails();
+    if (!emails.length) { showToast('Seleziona almeno un iscritto', 'error'); return; }
+    if (!confirm('Eliminare ' + emails.length + ' iscritti?')) return;
+    const fd = new FormData();
+    fd.append('csrf_token', CSRF);
+    fd.append('emails', JSON.stringify(emails));
+    try {
+        const res = await fetch(API + '?action=newsletter_delete', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.success) {
+            showToast(emails.length + ' iscritti eliminati');
+            loadSubscribers();
+        } else {
+            showToast(data.error || 'Errore', 'error');
+        }
+    } catch(e) {
+        showToast('Errore di rete', 'error');
+    }
 }
 
 // --- Init ---

@@ -16,6 +16,7 @@ define('ADMIN_PASSWORD_HASH', password_hash('labulle2025', PASSWORD_DEFAULT));
 // --- PERCORSI ---
 define('DATA_DIR', __DIR__ . '/../data/');
 define('EVENTS_FILE', DATA_DIR . 'events.json');
+define('SUBSCRIBERS_FILE', DATA_DIR . 'subscribers.json');
 define('UPLOADS_DIR', __DIR__ . '/../uploads/events/');
 define('UPLOADS_URL', '../uploads/events/');
 
